@@ -1,0 +1,187 @@
+
+
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<link rel="stylesheet" href="{% static 'dist2/css/bootstrap.min.css' %}">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Tatitra</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link href="{% static 'dia/sclolfiles/styles.css'%}" rel="stylesheet">
+	<script src="{% static 'dia/jquery-1.10.2.min.js'%}"></script>
+
+	<script src="{% static 'dia/knockout-3.0.0.js'%}"></script>
+
+	<script src="{% static 'dia/globalize.min.js'%}"></script>
+	<script src="{% static 'dia/dx.chartjs.js'%}"></script>
+	<script src="{% static 'dia/gr2.js'%}"></script>
+</head>
+
+<body class=" d-flex flex-column h-100">
+
+	<div class="content" id="g1" style="width: 127px;">
+	</div>
+	<!--<div class="content" id="g2">
+	</div>-->
+	<script>
+         
+        // Intégration des données statistiques directement dans JavaScript
+        const statistiques = {{ statistiques_json|safe }};
+        console.log("Données statistiques :", statistiques);
+        console.log("isan ny lehilay : " , statistiques.pourcentage_hommes)
+        console.log("isan ny vehivavy : " , statistiques.pourcentage_femmes)
+        console.log("z:",statistiques.tranche_age.entre_18_25/statistiques.total_inscrits)
+    
+		function k(params) {
+			let a = [
+				{ Mpino: "Lehilay", val: statistiques.pourcentage_hommes/100 },
+				{ Mpino: "Vehivavy", val: statistiques.pourcentage_femmes/100 },
+			]
+			return a
+		}
+		
+        function taona_karazany_k(params) {
+			let b = 0
+            let c = 0
+            let d = 0
+            let e = 0
+            let f = 0
+            let j = 0
+            let h = 0
+            let i = 0
+            try {
+                b = statistiques.tranche_age.entre_1_10/statistiques.total_inscrits
+                c = statistiques.tranche_age.entre_10_15/statistiques.total_inscrits
+                d = statistiques.tranche_age.entre_15_18/statistiques.total_inscrits
+                e = statistiques.tranche_age.entre_18_25/statistiques.total_inscrits
+                f = statistiques.tranche_age.entre_25_30/statistiques.total_inscrits
+                j = statistiques.tranche_age.entre_30_40/statistiques.total_inscrits
+                h = statistiques.tranche_age.entre_40_50/statistiques.total_inscrits
+                i = statistiques.tranche_age.plus_50/statistiques.total_inscrits
+            } catch (error) {
+                
+            }
+			let a = [
+				{ Mpino: "1-10", val : b},
+                { Mpino: "10-15", val : c},
+                { Mpino: "15-18", val : d},
+                { Mpino: "18-25", val : e},
+                { Mpino: "25-30", val : f},
+                { Mpino: "30-40", val : j},
+				{ Mpino: "40-50", val : h},
+                { Mpino: "miortran' ny 50", val : i},
+				
+			]
+			return a
+		}
+		
+</script>
+<div class="container-fluid">
+	<a onclick="Anim()" href="{% url 'Tableau:Tableau' %}Katekomen/" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></a>
+            
+	<section class="jumbotron text-center">
+		
+		<div class="container">
+			<h1 class="jumbotron-heading">Tatitra</h1>
+			<p class="lead text-muted">Mahakasika ireo Katekomen </p>
+            <form class="form-control p-2 m-2" method="get" action="">
+                <label for="annee">Taona :</label>
+                <input type="number" id="annee" name="annee" value="{{ annee }}" placeholder="hoatra: 2024">
+                
+                <label  for="debut">Nanoboka :</label>
+                <input type="date" id="debut" name="debut" value="{{ debut }}">
+        
+                <label for="fin">Hatraminy :</label>
+                <input type="date" id="fin" name="fin" value="{{ fin }}">
+        
+                <button  type="submit">Sivana</button>
+            </form>
+        
+		</div>
+	</section>
+	<div class="row mb-2">
+		<div class="col-md-6">
+			<div class="card flex-md-row mb-4 box-shadow h-md-250">
+				<div class="card-body d-flex flex-column align-items-start">
+					<strong class="d-inline-block mb-2 text-primary">Katekomen</strong>
+					<h3 class="mb-0">
+						<a class="text-dark" href="#">Tatitra mobaireo Katekomen</a>
+					</h3>
+					<div class="mb-1 text-muted"></div>
+					<!-- Affichage des statistiques -->
+                    <p>Isan' ireo Katekomen: <span id="total-inscrits">{{ statistiques_json.total_inscrits }}</span></p>
+                    <p>Lehila : {{Lehilay}}</p>
+					<p>Vehivavy : {{Vehivavy}}</p>
+                    <p>Salanisan' ireo Lehilay : <span id="pourcentage-hommes">{{ statistiques_json.pourcentage_hommes }}%</span></p>
+                    <p>Salanisan' ireo Vehivavy : <span id="pourcentage-femmes">{{ statistiques_json.pourcentage_femmes }}%</span></p>
+					
+				</div>
+				<img class="card-img-right flex-auto d-none d-md-block" src="{% static 'logo/asset/Fjkm.png' %}"
+					alt="Card image cap">
+			</div>
+		</div>
+        <div class="col-md-6">
+			<div class="card flex-md-row mb-4 box-shadow h-md-250">
+				<div class="card-body d-flex flex-column align-items-start">
+					<strong class="d-inline-block mb-2 text-success">Taona</strong>
+					<h3 class="mb-0">
+						<a class="text-dark" href="#">Ambarantogan-taona</a>
+					</h3>
+					
+                    <ul>
+                        <li> 1 ----  10 taona : <span id="entre-1-10">{{ statistiques_json.tranche_age.entre_1_10 }}</span></li>
+                        <li> 10 ---- 15 taona : <span id="entre-10-15">{{ statistiques_json.tranche_age.entre_10_15 }}</span></li>
+                        <li> 15 ---- 18 taona : <span id="entre-15-18">{{ statistiques_json.tranche_age.entre_15_18 }}</span></li>
+                        
+                        <li> 18 ---- 25 taona : <span id="entre-18-25">{{ statistiques_json.tranche_age.entre_18_25 }}</span></li>
+                        <li> 25 ---- 30 taona : <span id="entre-25-30">{{ statistiques_json.tranche_age.entre_25_30 }}</span></li>
+                        <li> 30 ---- 40 taona : <span id="entre-30-40">{{ statistiques_json.tranche_age.entre_30_40 }}</span></li>
+                        <li> 40 ---- 50 taona : <span id="entre-40-50">{{ statistiques_json.tranche_age.entre_40_50 }}</span></li>
+                        <li> Mihotriny   50 taona : <span id="plus-18">{{ statistiques_json.tranche_age.plus_50 }}</span></li>
+                    </ul>
+				</div>
+				<img class="card-img-right flex-auto d-none d-md-block" src="{% static 'logo/asset/Fjkm.png' %}"
+					alt="Card image cap">
+			</div>
+		</div>
+		
+	</div>
+	<main>
+		<div class="row mb-2">
+			<div class="col-md-6">
+				<div class="card flex-md-row box-shadow h-100">
+					<div class="card-body">
+						<div class="container">
+							<div class="content3" id="g2" k>
+							</div>
+							<br>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div class="card flex-md-row  box-shadow h-100 ">
+					<div class="card-body">
+						<div class="container">
+							<div class="content6" id="g3" taona_karazany_k>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+
+	</main>
+
+    
+</div>
+</body>
+
+</html>

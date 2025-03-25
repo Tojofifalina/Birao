@@ -1,0 +1,181 @@
+
+
+{% load static %}
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Katekomen</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Fampidirana</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'dist3/css/bootstrap.min.css'%}" rel="stylesheet">
+    
+</head>
+
+
+<main role="main" class="container-fluid mt-3"  style="padding-bottom: 40px;">
+    
+        <div class="form-control main  scroll h-100" style="left: 12px;">
+            <div class="modal-header bg-m">
+                <h5 class="modal-title" id="Mombamoba">Katekomen</h5>
+                <a href="{% url 'Tableau:Tableau' %}Katekomen/" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" >X</a>
+            </div>
+            <div class="p-3 overflow-hiden">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    
+                    {% if form.non_field_errors %}
+                    {%for error in form.non_field_errors %}
+                    <div class="alert alert-info text-center" role="alert">{{ error }}</div>
+                    {% endfor %}
+                    {%endif%}
+                    <div class="row g-2 ">
+                        <div class="col-6 mb-3 form-control">
+                            <label for="id_Karatra" class="form-label">Laharan' ny Karatra</label>
+                        </div>
+                        <div class="col-6 mb-3 form-control">
+                            <input class="form-control" type="text" name="Karatra" id="id_Karatra" required value="">
+                            {% for error in form.nom.errors %}
+                            <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="col-6 mb-3 form-control">
+                            <label for="id_Anarana" class="form-label">Anarana</label>
+                        </div>
+                        <div class="col-6 mb-3 form-control">
+                            <input class="form-control" type="text" name="Anarana" id="id_Anarana" required value="{{ anarana.Anarana|default:'' }}">
+                            {% for error in form.nom.errors %}
+                            <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="col-6 mb-3 form-control">
+                            <label for="id_Fanampiny" class="form-label">Fanampiny</label>
+                        </div>
+                        <div class="col-6 mb-3 form-control">
+                            <input class="form-control" type="text" name="Fanampiny" maxlength="255" required id="id_Fanampiny" value="">
+                            {% for error in form.nom.errors %}
+                            <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="col-6 mb-3 form-control">
+                            <label for="id_Taona" class="form-label">Taompianarana</label>
+                        </div>
+                        <div class="col-6 mb-3 form-control">
+                            <input class="form-control" type="number"  min="1900"  name="Taona"  required id="id_Taona" value="">
+                            {% for error in form.nom.errors %}
+                            <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="col-6 mb-3 form-control">
+                            <label for="id_Daty_Nidirana" class="form-label">Daty nidirana</label>
+                        </div>
+                        <div class="col-6 mb-3 form-control">
+                            <input class="form-control" type="date" name="Daty_Nidirana" required id="id_Daty_Nidirana" value="">
+                            {% for error in form.nom.errors %}
+                            <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        
+
+                        
+                        
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary w-35" id="Ampiditra">Ampiditra</button>
+                    </div>
+                   
+                </form>
+                
+                
+            </div>
+            
+        </div>
+
+        
+
+</main><!-- /.container -->
+
+
+<nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">FJKM ANDRAISORO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+           
+        </ul>
+    </div>
+</nav>
+
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src=""
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script>window.jQuery || document.write(`<script src="{% static 'assets/js/vendor/jquery-slim.min.js'%}"><\/script>`)</script>
+<!--<script src="{% static 'assets/js/vendor/popper.min.js'%}"></script>-->
+<script src="{% static 'dist3/js/bootstrap.min.js'%}"></script>
+<script src="{% static 'assets/js/vendor/jquery-slim.min.js'%}"></script>
+<script>
+    // <![CDATA[  <-- For SVG support
+    if ('WebSocket' in window) {
+        (function () {
+            function refreshCSS() {
+                var sheets = [].slice.call(document.getElementsByTagName("link"));
+                var head = document.getElementsByTagName("head")[0];
+                for (var i = 0; i < sheets.length; ++i) {
+                    var elem = sheets[i];
+                    var parent = elem.parentElement || head;
+                    parent.removeChild(elem);
+                    var rel = elem.rel;
+                    if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                        var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                        elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                    }
+                    parent.appendChild(elem);
+                }
+            }
+            var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+            var address = protocol + window.location.host + window.location.pathname + '/ws';
+            var socket = new WebSocket(address);
+            socket.onmessage = function (msg) {
+                if (msg.data == 'reload') window.location.reload();
+                else if (msg.data == 'refreshcss') refreshCSS();
+            };
+            if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                console.log('Live reload enabled.');
+                sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+            }
+        })();
+    }
+    else {
+        console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+        // ]]>
+</script>
+</body>
+
+</html>

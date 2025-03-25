@@ -1,0 +1,136 @@
+{% extends "headerBlog.html" %}
+
+{% load static %}
+{% block title %} Blog {% endblock %}
+
+
+{% block static %}
+<link href="{% static 'mdeditor/css/editormd.min.css' %}" rel="stylesheet">
+<link href="{% static 'mdeditor/css/editormd.preview.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'responsiv-rectif.css' %}">
+
+<link href="{% static 'stylesheet' %}" rel="stylesheet">
+
+
+{% endblock %}
+
+{% block menu %}
+
+<ul> {% for t in ts %}
+    <li class="article-title" data-id="{{ t.id }}">
+        {{ t.mame }}
+    </li> {% endfor %}
+</ul>
+
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .article-title {
+        cursor: pointer;
+        margin: 5px 0;
+    }
+
+    .article-title:hover {
+        text-decoration: underline;
+        color: blue;
+    }
+
+    .article-content {
+        display: none;
+        /* Masquer le contenu par défaut */
+    }
+</style>
+
+<div class="conten">
+
+
+    <h2 id="article-title">
+        Sélectionnez un article
+    </h2>
+    
+    <p id="article-content">
+        Le contenu de l'article apparaîtra ici.
+    </p>
+
+</div>
+
+<div id="content">
+    
+<!-- Contenu caché de tous les articles -->
+
+<div id="articles-data" style="display: none;">
+
+    {% for t in ts %}
+
+    <div id="article-{{t.id }}" class="article-content">
+
+        <h2>{{ t.mame }}</h2>
+        
+ 
+        <p> {{ t.content }}</p>
+   
+    </div> {% endfor %}
+
+</div>
+
+</div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Sélectionner tous les titres 
+        const titles = document.querySelectorAll('.article-title');
+        const titleEl = document.getElementById('article-title');
+        const contentEl = document.getElementById('article-content');
+        // Ajouter un gestionnaire de clic à chaque titre 
+        titles.forEach(title => {
+            title.addEventListener('click', function () {
+                const articleId = this.dataset.id;
+                // Récupérer le contenu correspondant 
+                const articleContent = document.querySelector(`#article-${articleId}`);
+                if (articleContent) {
+                    // Mettre à jour le titre et le contenu 
+                    titleEl.textContent = articleContent.querySelector('h2').textContent;
+                    contentEl.textContent = articleContent.querySelector('p').textContent;
+                }
+            });
+        });
+    });
+</script>
+
+
+
+
+<script src="{% static 'mdeditor/js/jquery.min.js' %}"></script>
+<script src="{% static 'mdeditor/js/editormd.min.js' %}"></script>
+<script src="{% static 'mdeditor/js/lib/marked.min.js' %}"></script>
+<script src="{% static 'mdeditor/js/lib/prettify.min.js' %}"></script>
+<script src="{% static 'mdeditor/js/lib/raphael.min.js' %}"></script>
+<script src="{% static 'mdeditor/js/lib/underscore.min.js' %}"></script>
+<script src="{% static 'mdeditor/js/lib/sequence-diagram.min.js' %}"></script>
+<script src="{% static 'mdeditor/js/lib/flowchart.min.js' %}"></script>
+<script src="{% static 'mdeditor/js/lib/jquery.flowchart.min.js' %}"></script>
+<script>
+    $(function () {
+        // js 解析markdown
+        editormd.markdownToHTML("content", {
+            //htmlDecode      : "style,script,iframe",  // you can filter tags decode
+            htmlDecode: "style,",
+            emoji: true,
+            taskList: true,
+            tex: true,  // 默认不解析
+            flowChart: true,  // 默认不解析
+            sequenceDiagram: true,  // 默认不解析
+        });
+
+        $(".reference-link").each(function (i, obj) {
+            console.log(obj)
+        })
+    })
+
+</script>
+
+
+{% endblock %}

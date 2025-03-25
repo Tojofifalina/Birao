@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Blog {% endblock %}
+{% block static %}
+<script src="{% static 'js/code.js' %}" defer=""></script>
+<link href="{% static 'mdeditor/css/editormd.min.css' %}" rel="stylesheet">
+  <link href="{% static 'mdeditor/css/editormd.preview.css' %}" rel="stylesheet">
+{% endblock %}
+{%block nav %}
+<div class="topnav right-align ">
+    <a  id="menubtn" class='topnav-localicons left  ' onclick="openNav()" title='Menu'>&#9776;</a>
+    <div class="topnavlinks">
+        <a h onclick="Home()" class="a "  href="{% url 'folio' %}">
+            <span class="glyphicon-triangle-bottom"></span>Home <i class='fa fa-caret-down '></i><i
+                class='fa fa-caret-up' style='display:none'></i></a>
+
+        <a b onclick="Blog()" class="a nav-active"  href="{% url 'Blog' %}">Blog <i class='fa fa-caret-down'></i><i class='fa fa-caret-up active'
+                style='display:none'></i></a>
+        <a f onclick="Forum()" class="a">Forum <i class='fa fa-caret-down'></i><i class='fa fa-caret-up'
+                style='display:none'></i></a>
+        <a onclick="Openpopup()" id="about">About <i class='fa fa-caret-down'></i><i class='fa fa-caret-up'
+                style='display:none'></i></a>
+
+    </div>
+
+</div>
+{% endblock %}
+
+{% block menu %}
+{% for article in articles %}
+    <div class="well well-lg" style="background-color:rgba(0, 0, 0, 0);margin-top: 10px;">
+        <h5><span class="glyphicon glyphicon-time"></span> Post by {{article.auteur}} {{article.date}}.</h5>
+        <h4><span class="label label-success">{{article.titre}}</span></h4><br>
+        
+        <hr>
+    </div>
+    {% endfor %}
+{% endblock %}
+{% block content %}
+    
+    <div class="alert alert-info">
+        <strong>Info!</strong> En Production !
+    </div>
+    {% for article in articles %}
+    <div class="well well-lg" style="background-color:rgba(0, 0, 0, 0);margin-top: 10px;">
+        <h4><small>RECENT POSTS</small></h4>
+        <span class=""><div class="col-sm-2 text-center">
+            <img src="{% static 'image/logo/bird.jpg' %}"class="img-circle"  alt="Avatar">
+        </div></span>
+        <hr>
+        <h2>Blog officiel de {{article.auteur}}</h2>
+        <h5><span class="glyphicon glyphicon-time"></span> Post by {{article.auteur}} {{article.date}}.</h5>
+        <h3><span class="label label-success">{{article.titre}}</span></h3><br>
+        <p>{{article.contenu}}</p>
+        <hr>
+        
+        
+    </div>
+{% endfor %}
+{% for t in ts %}
+    <div id="content"><textarea>{{ t.content}}</textarea></div>
+{% endfor %}
+{% endblock %}
+
+<script src="{% static 'mdeditor/js/jquery.min.js' %}"></script>
+  <script src="{% static 'mdeditor/js/editormd.min.js' %}"></script>
+  <script src="{% static 'mdeditor/js/lib/marked.min.js' %}"></script>
+  <script src="{% static 'mdeditor/js/lib/prettify.min.js' %}"></script>
+  <script src="{% static 'mdeditor/js/lib/raphael.min.js' %}"></script>
+  <script src="{% static 'mdeditor/js/lib/underscore.min.js' %}"></script>
+  <script src="{% static 'mdeditor/js/lib/sequence-diagram.min.js' %}"></script>
+  <script src="{% static 'mdeditor/js/lib/flowchart.min.js' %}"></script>
+  <script src="{% static 'mdeditor/js/lib/jquery.flowchart.min.js' %}"></script>
+<script>
+  $(function () {
+      // js 解析markdown
+      editormd.markdownToHTML("content", {
+          //htmlDecode      : "style,script,iframe",  // you can filter tags decode
+          emoji           : true,
+          taskList        : true,
+          tex             : true,  // 默认不解析
+          flowChart       : true,  // 默认不解析
+          sequenceDiagram : true,  // 默认不解析
+      });
+
+      $(".reference-link").each(function (i,obj) {
+        console.log(obj)
+      })
+  })
+
+</script>
+</body>
+</html>

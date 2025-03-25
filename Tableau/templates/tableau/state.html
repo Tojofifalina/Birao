@@ -1,0 +1,334 @@
+
+
+
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Statistiques</title>
+    <script>
+        // Intégration des données statistiques directement dans JavaScript
+        const statistiques = {{ statistiques_json|safe }};
+        console.log("Données statistiques :", statistiques);
+        console.log("isan ny lehilay : " , statistiques.pourcentage_hommes)
+        console.log("isan ny vehivavy : " , statistiques.pourcentage_femmes)
+        console.log("z:",statistiques.tranche_age.entre_18_25/statistiques.total_inscrits)
+    </script>
+</head>
+<body>
+    <h1>Statistiques</h1>
+
+    Formulaire pour les filtres
+    <form method="get" action="{% url 'Tableau:state' %}">
+        <label for="annee">Année :</label>
+        <input type="number" id="annee" name="annee" value="{{ annee }}" placeholder="Ex: 2024">
+        
+        <label for="debut">Début de période :</label>
+        <input type="number" id="debut" name="debut" value="{{ debut }}">
+
+        <label for="fin">Fin de période :</label>
+        <input type="number" id="fin" name="fin" value="{{ fin }}">
+
+        <button type="submit">Filtrer</button>
+    </form>
+
+     Affichage des statistiques 
+    <p>Total des inscrits : <span id="total-inscrits">{{ statistiques_json.total_inscrits }}</span></p>
+    <p>Pourcentage d'hommes : <span id="pourcentage-hommes">{{ statistiques_json.pourcentage_hommes }}%</span></p>
+    <p>Pourcentage de femmes : <span id="pourcentage-femmes">{{ statistiques_json.pourcentage_femmes }}%</span></p>
+
+    <h2>Tranche d'âge</h2>
+    <ul>
+        <li>Entre 1 et 10 ans : <span id="entre-1-10">{{ statistiques_json.tranche_age.entre_1_10 }}</span></li>
+        <li>Entre 10 et 15 ans : <span id="entre-10-15">{{ statistiques_json.tranche_age.entre_10_15 }}</span></li>
+        <li>Entre 15 et 18 ans : <span id="entre-15-18">{{ statistiques_json.tranche_age.entre_15_18 }}</span></li>
+        <li>Moins de 18 ans : <span id="moins-18">{{ statistiques_json.tranche_age.moins_18 }}</span></li>
+        <li>Entre 18 et 25 ans : <span id="entre-18-25">{{ statistiques_json.tranche_age.entre_18_25 }}</span></li>
+        <li>Entre 25 et 30 ans : <span id="entre-25-30">{{ statistiques_json.tranche_age.entre_25_30 }}</span></li>
+        <li>Entre 30 et 40 ans : <span id="entre-30-40">{{ statistiques_json.tranche_age.entre_30_40 }}</span></li>
+        <li>Entre 40 et 50 ans : <span id="entre-40-50">{{ statistiques_json.tranche_age.entre_40_50 }}</span></li>
+        <li>Plus de 50 ans : <span id="plus-18">{{ statistiques_json.tranche_age.plus_18 }}</span></li>
+    </ul>
+
+    Affichage des autres informations 
+    <h2>Autres informations</h2>
+    <ul>
+        {% for info in autres_infos %}
+            <li>{{ info.nom }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+-->
+
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<link rel="stylesheet" href="{% static 'dist2/css/bootstrap.min.css' %}">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Tatitra</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link href="{% static 'dia/sclolfiles/styles.css'%}" rel="stylesheet">
+	<script src="{% static 'dia/jquery-1.10.2.min.js'%}"></script>
+
+	<script src="{% static 'dia/knockout-3.0.0.js'%}"></script>
+
+	<script src="{% static 'dia/globalize.min.js'%}"></script>
+	<script src="{% static 'dia/dx.chartjs.js'%}"></script>
+	<script src="{% static 'dia/gr.js'%}"></script>
+</head>
+
+<body class=" d-flex flex-column h-100">
+
+	<div class="content" id="g1" style="width: 127px;">
+	</div>
+	<!--<div class="content" id="g2">
+	</div>-->
+	<script>
+         
+        // Intégration des données statistiques directement dans JavaScript
+        const statistiques = {{ statistiques_json|safe }};
+        console.log("Données statistiques :", statistiques);
+        console.log("isan ny lehilay : " , statistiques.pourcentage_hommes)
+        console.log("isan ny vehivavy : " , statistiques.pourcentage_femmes)
+        console.log("z:",statistiques.tranche_age.entre_18_25/statistiques.total_inscrits)
+    
+		function s(params) {
+			let a = [
+				{ Mpino: "Lehilay", val: statistiques.pourcentage_hommes/100 },
+				{ Mpino: "Vehivavy", val: statistiques.pourcentage_femmes/100 },
+			]
+			return a
+		}
+		function mp(params) {
+			let a = [
+				{ Mpino: "Pandray", val:statistiques.pourcentage_mpadray/100 },
+				{ Mpino: "Kristianinana", val: statistiques.pourcentage_kristianina/100 },
+			]
+			return a
+		}
+        function taona_karazany(params) {
+			let b = 0
+            let c = 0
+            let d = 0
+            let e = 0
+            let f = 0
+            let j = 0
+            let h = 0
+            let i = 0
+            try {
+                b = statistiques.tranche_age.entre_1_10/statistiques.total_inscrits
+                c = statistiques.tranche_age.entre_10_15/statistiques.total_inscrits
+                d = statistiques.tranche_age.entre_15_18/statistiques.total_inscrits
+                e = statistiques.tranche_age.entre_18_25/statistiques.total_inscrits
+                f = statistiques.tranche_age.entre_25_30/statistiques.total_inscrits
+                j = statistiques.tranche_age.entre_30_40/statistiques.total_inscrits
+                h = statistiques.tranche_age.entre_40_50/statistiques.total_inscrits
+                i = statistiques.tranche_age.plus_50/statistiques.total_inscrits
+            } catch (error) {
+                
+            }
+			let a = [
+				{ Mpino: "1-10", val : b},
+                { Mpino: "10-15", val : c},
+                { Mpino: "15-18", val : d},
+                { Mpino: "18-25", val : e},
+                { Mpino: "25-30", val : f},
+                { Mpino: "30-40", val : j},
+				{ Mpino: "40-50", val : h},
+                { Mpino: "miortran' ny 50", val : i},
+				
+			]
+			return a
+		}
+		function batisa(params) {
+			v = statistiques.pourcentage_vita_batisa*10
+			t = statistiques.pourcentage_tsy_vita_batisa*10
+			
+			let x = [
+				{ Mpino: "Vita batisa", val:v },
+				{ Mpino: "Tsy vita batisa ", val: t },
+			]
+			return x
+		}
+</script>
+<div class="container-fluid">
+	<a onclick="Anim()" href="{% url 'Tableau:Tableau' %}" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></a>
+            
+	<section class="jumbotron text-center">
+		
+		<div class="container">
+			<h1 class="jumbotron-heading">Tatitra</h1>
+			<p class="lead text-muted">Mahakasika ireo Pino </p>
+            <form class="form-control p-2 m-2" method="get" action="{% url 'Tableau:state' %}">
+                <label for="annee">Taona :</label>
+                <input type="number" id="annee" name="annee" value="{{ annee }}" placeholder="hoatra: 2024">
+                
+                <label  for="debut">Nanoboka :</label>
+                <input type="number" id="debut" name="debut" value="{{ debut }}">
+        
+                <label for="fin">Hatraminy :</label>
+                <input type="number" id="fin" name="fin" value="{{ fin }}">
+        
+                <button  type="submit">Sivana</button>
+            </form>
+        
+		</div>
+	</section>
+	<div class="row mb-2">
+		<div class="col-md-6">
+			<div class="card flex-md-row mb-4 box-shadow h-md-250">
+				<div class="card-body d-flex flex-column align-items-start">
+					<strong class="d-inline-block mb-2 text-primary">Mpino</strong>
+					<h3 class="mb-0">
+						<a class="text-dark" href="#">Tatitra mobaireo Mpino</a>
+					</h3>
+					<div class="mb-1 text-muted">Des 28</div>
+					<!-- Affichage des statistiques -->
+                    <p>Isan' ireo Mpino: <span id="total-inscrits">{{ statistiques_json.total_inscrits }}</span></p>
+                    <p>Lehila : {{statistiques_json.Lehilay}}</p>
+					<p>Vehivavy : {{statistiques_json.Vehivavy}}</p>
+                    <p>Salanisan' ireo Lehilay : <span id="pourcentage-hommes">{{ statistiques_json.pourcentage_hommes }}%</span></p>
+                    <p>Salanisan' ireo Vehivavy : <span id="pourcentage-femmes">{{ statistiques_json.pourcentage_femmes }}%</span></p>
+					
+				</div>
+				<img class="card-img-right flex-auto d-none d-md-block" src="{% static 'logo/asset/Fjkm.png' %}"
+					alt="Card image cap">
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="card flex-md-row mb-4 box-shadow h-md-250">
+				<div class="card-body d-flex flex-column align-items-start">
+					<strong class="d-inline-block mb-2 text-success">Mpadray sy Kristianina</strong>
+					<h3 class="mb-0">
+						<a class="text-dark" href="#">Tatitra mobaireo Mpandray</a>
+					</h3>
+					<div class="mb-1 text-muted">Des 28</div>
+					<p>Isan' ireo Mpino : {{ statistiques_json.total_inscrits }}</p>
+					<p>Isan' ireo Mpaday : {{statistiques_json.mpadray}}</p>
+					<p>Isan' ireo Kristianina : {{statistiques_json.kristianina}}</p>
+					<p>Mpandray : {{statistiques_json.pourcentage_mpadray}} %</p>
+					<p>Kristianina : {{statistiques_json.pourcentage_kristianina}} %</p>
+				</div>
+				<img class="card-img-right flex-auto d-none d-md-block" src="{% static 'logo/asset/Fjkm.png' %}"
+					alt="Card image cap">
+			</div>
+		</div>
+	</div>
+	<main>
+		<div class="row mb-2">
+			<div class="col-md-6">
+				<div class="card flex-md-row box-shadow h-100">
+					<div class="card-body">
+						<div class="container">
+							<div class="content3" id="g5" s>
+							</div>
+							<br>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div class="card flex-md-row  box-shadow h-100 ">
+					<div class="card-body">
+						<div class="container">
+							<div class="content4" id="g6" mp>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+
+	</main>
+
+    <div class="row mb-2">
+
+        <div class="col-md-6">
+			<div class="card flex-md-row mb-4 box-shadow h-md-250">
+				<div class="card-body d-flex flex-column align-items-start">
+					<strong class="d-inline-block mb-2 text-success">Taona</strong>
+					<h3 class="mb-0">
+						<a class="text-dark" href="#">Ambarantogan-taona</a>
+					</h3>
+					
+                    <ul>
+                        <li> 1 atraminy  10 taona : <span id="entre-1-10">{{ statistiques_json.tranche_age.entre_1_10 }}</span></li>
+                        <li> 10 atraminy 15 taona : <span id="entre-10-15">{{ statistiques_json.tranche_age.entre_10_15 }}</span></li>
+                        <li> 15 atraminy 18 taona : <span id="entre-15-18">{{ statistiques_json.tranche_age.entre_15_18 }}</span></li>
+                        
+                        <li> 18 atraminy 25 taona : <span id="entre-18-25">{{ statistiques_json.tranche_age.entre_18_25 }}</span></li>
+                        <li> 25 atraminy 30 taona : <span id="entre-25-30">{{ statistiques_json.tranche_age.entre_25_30 }}</span></li>
+                        <li> 30 atraminy 40 taona : <span id="entre-30-40">{{ statistiques_json.tranche_age.entre_30_40 }}</span></li>
+                        <li> 40 atraminy 50 taona : <span id="entre-40-50">{{ statistiques_json.tranche_age.entre_40_50 }}</span></li>
+                        <li> Mihotriny   50 taona : <span id="plus-18">{{ statistiques_json.tranche_age.plus_50 }}</span></li>
+                    </ul>
+				</div>
+				<img class="card-img-right flex-auto d-none d-md-block" src="{% static 'logo/asset/Fjkm.png' %}"
+					alt="Card image cap">
+			</div>
+		</div>
+    
+		<div class="col-md-6">
+			<div class="card flex-md-row mb-4 box-shadow h-md-250">
+				<div class="card-body d-flex flex-column align-items-start">
+					<strong class="d-inline-block mb-2 text-primary">Batisa</strong>
+					<h3 class="mb-0">
+						<a class="text-dark" href="#">Tatitra mobaireo Mpino</a>
+					</h3>
+					<!--<div class="mb-1 text-muted">Des 28</div>--->
+					<p>Isan' ireo Mpino : {{ statistiques_json.total_inscrits }}</p>
+					<p>Isan' ireo vita baisa : {{statistiques_json.vita_batisa}}</p>
+					<p>Isan' ireo tsy vita batiasa : {{statistiques_json.tsy_vita_batisa}}</p>
+					<p>Vita batisa : {{statistiques_json.pourcentage_vita_batisa}} %</p>
+					<p>tsy vita tsy vita batisa : {{statistiques_json.pourcentage_tsy_vita_batisa}} %</p>
+				</div>
+				<img class="card-img-right flex-auto d-none d-md-block" src="{% static 'logo/asset/Fjkm.png' %}"
+					alt="Card image cap">
+			</div>
+			</div>
+		</div>
+      
+
+		
+	</div>
+	<main>
+		<div class="row mb-2">
+			<div class="col-md-6">
+				<div class="card flex-md-row box-shadow h-100">
+					<div class="card-body">
+						<div class="container">
+							<div class="content5" id="g7" taona_karazany>
+							</div>
+							<br>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div class="card flex-md-row  box-shadow h-100 ">
+					<div class="card-body">
+						<div class="container">
+							<div class="content6" id="g8" batisa>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+
+	</main>
+</div>
+</body>
+
+</html>

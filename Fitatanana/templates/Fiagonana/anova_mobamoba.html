@@ -1,0 +1,352 @@
+{% extends "base2.html" %}
+{% load static %}
+{% block title %} Folio {% endblock %}
+{% block static %}
+<link rel="stylesheet" href="{% static 'responsiv-rectif.css' %}">
+<link rel="stylesheet" href="{% static 'album.css' %}">
+<link href="{% static 'stylesheet' %}" rel="stylesheet">
+<link href="{% static 'dist3/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'cover.css' %}" rel="stylesheet">
+<link href="{% static 'sticky-footer-navbar.css'%}" rel="stylesheet">
+<script src="{% static 'js/code.js' %}" defer=""></script>
+<script src="{% static 'dist/js/bootstrap.min.js' %}" defer=""></script>
+{% endblock %}
+{% block content %}
+<style>
+    .card-body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        font-size: 12px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .card-body .card-progress {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 96px;
+        height: 96px;
+        border-radius: 100%;
+
+    }
+
+    .card-body svg circle {
+        fill: none;
+        stroke-width: 16px;
+        stroke-dasharray: 226.2;
+        stroke-dashoffset: 226.2;
+        transform: translate(10px, 10px);
+        stroke-linecap: round;
+        transition: stroke-dashoffset 1s ease-in;
+    }
+
+    .card-body .percentage {
+        position: absolute;
+        font-weight: 700;
+    }
+
+    .stroke-red {
+        stroke: green;
+    }
+
+    * * Globals */
+
+    /* Links */
+    a,
+    a:focus,
+    a:hover {
+        color: #fff;
+    }
+
+    /* Custom default button */
+    .btn-secondary,
+    .btn-secondary:hover,
+    .btn-secondary:focus {
+        color: #333;
+        text-shadow: none;
+        /* Prevent inheritance from `body` */
+        background-color: #fff;
+        border: .05rem solid #fff;
+    }
+
+
+    /*
+ * Base structure
+ */
+
+    html,
+    body {
+        height: 100%;
+        /*background-color: #333;*/
+        /*background-color: #000000;*/
+    }
+
+    section {
+        height: 100%;
+    }
+
+    body {
+        display: -ms-flexbox;
+        display: -webkit-box;
+        display: flex;
+        -ms-flex-pack: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+
+        text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+        box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+    }
+
+    .cover-container {
+        max-width: 42em;
+        max-height: 50em;
+    }
+
+
+    /*
+ * Header
+ */
+    .masthead {
+        margin-bottom: 2rem;
+    }
+
+    .masthead-brand {
+        margin-bottom: 0;
+    }
+
+    .nav-masthead .nav-link {
+        padding: .25rem 0;
+        font-weight: 700;
+        color: rgba(255, 255, 255, .5);
+        background-color: transparent;
+        border-bottom: .25rem solid transparent;
+    }
+
+    .nav-masthead .nav-link:hover,
+    .nav-masthead .nav-link:focus {
+        border-bottom-color: rgba(255, 255, 255, .25);
+    }
+
+    .nav-masthead .nav-link+.nav-link {
+        margin-left: 1rem;
+    }
+
+    .nav-masthead .active {
+        color: #fff;
+        border-bottom-color: #fff;
+    }
+
+    .jumbotron-heading {
+        padding-bottom: 20px;
+    }
+
+    @media (min-width: 48em) {
+        .masthead-brand {
+            float: left;
+        }
+
+        .nav-masthead {
+            float: right;
+        }
+    }
+
+
+    /*
+ * Cover
+ */
+    .cover {
+        padding: 0 1.5rem;
+    }
+
+    .cover .btn-lg {
+        padding: .75rem 1.25rem;
+        font-weight: 700;
+    }
+
+
+    /*
+ * Footer
+ */
+    .mastfoot {
+        color: rgba(255, 255, 255, .5);
+    }
+
+    /*respon**/
+    @media screen and (max-width:900px) {
+        section {
+            height: auto;
+        }
+
+        @media screen and (max-width:960px) {
+            section {
+                height: auto;
+            }
+        }
+
+
+    }
+</style>
+
+<script src="{% static 'js/dom_js.js' %}" defer></script>
+<style>
+    .main_pe {
+        grid-column: 3;
+        /*background: #fff;*/
+        background: linear-gradient(45deg, #616161, hsl(0deg 0% 0%)) center center no-repeat;
+        border-radius: 6px;
+
+        top: 50%;
+        left: 50%;
+        transform: translate(-0%, -0%) scale(0);
+        text-align: center;
+        padding: 0 30px 30px;
+        /*color: #333;*/
+
+        transition: transform 0.9s, top 0.9s;
+
+    }
+</style>
+
+</header>
+
+<body class="text-center">
+    <section id="section1">
+
+        <div class="cover-container-fluid d-flex h-100 p-3 mx-auto flex-column">
+            <a onclick="Anim()" href="{% url 'Fitatanana:Pejy1'%}" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></a>
+            <main role="main" class="inner cover text-center " style="padding-top: 20%;">
+                <div class="container-fluid text-center">
+                    <div class="row content">
+                        
+                        <div class=" text-left pt-20">
+                            <div class="container pt-12">
+                                <h1>Ikaroka</h1>
+                                <form method="get" action="">
+                                <div class="container">
+                                    <input class="form-control" id="hikaroka" name="q"  value="{{request.GET.q}}" type="search" placeholder="Ikaroka Mpino iray" >
+                                  
+                                </div></form><hr>
+                            </div>
+
+                        </div>
+                        <div class="container">
+                            {%if fikaroana %}
+                                
+                                {%if ita %}
+                                
+                               
+                                    {%for i in ita %}
+                                    <div class="container">
+                                        <h3>{{i.Anarana}}</h3>
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                {{i.Fanampiny}}
+                                            </li>
+                                            {%if i.L_v == "L"%}
+                                                <li class="list-group-item">
+                                                    Lehilahy
+                                                </li>
+                                            {%else%}
+                                                <li class="list-group-item">
+                                                    Vehivavy
+                                                </li>
+                                            {%endif%}
+                                            <li class="list-group-item">
+                                                {{i.Adresy}}
+                                            </li>
+                                            <li class="list-group-item">
+                                                {{i.Faritra}}
+                                            </li>
+                                          </ul>
+                                    </div>
+                                    
+                                    {%if code == "a025"%}
+                                        <td><a  href="{% url 'Fitatanana:Pejy1'%}anova/{{i.id}}"><img src="{% static 'admin/img/icon-changelink.svg' %}"class="w-120" style="width: 25px;height: 25px;"  alt="Anova"></a></td>
+                                    {%else%}
+                                        <a class="p-5" href="{% url 'Fitatanana:Pejy1'%}AmpiditraAdidyVaovao/{{i.id}}">Taona vaovao <img src="{% static 'admin/img/icon-addlink.svg' %}"class="w-120" style="width: 25px;height: 25px;" ></a>
+                                        
+                                        <a class="p-5" href="{% url 'Fitatanana:Pejy1'%}tahiry/{{i.id}}">Efamisy <img src="{% static 'admin/img/icon-viewlink.svg' %}"class="w-120" style="width: 25px;height: 25px;" ></a>
+                                    {%endif%}
+                                    {%endfor%}
+                                    {%else%}
+                                    <p>Tsy ita !!</p>
+                                {%endif%}
+            
+                                
+                            {%endif%}
+                        </div>
+
+                    </div>
+                    
+                </div>
+                
+
+            </main>
+
+            
+        </div>
+    </section>
+
+
+
+
+
+
+    <script src="{% static 'java.js' %}"></script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <script>window.jQuery || document.write(`<script src="{% static 'assets/js/vendor/jquery-slim.min.js'%}"><\/script>`)</script>
+    <script src="{% static 'assets/js/vendor/popper.min.js'%}"></script>
+    <script src="{% static 'dist3/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'assets/js/vendor/jquery-slim.min.js'%}"></script>
+    <script src="{% static 'assets/js/vendor/js/vendor/popper.min.js'%}"></script>
+
+    <script>
+        // <![CDATA[  <-- For SVG support
+        if ('WebSocket' in window) {
+            (function () {
+                function refreshCSS() {
+                    var sheets = [].slice.call(document.getElementsByTagName("link"));
+                    var head = document.getElementsByTagName("head")[0];
+                    for (var i = 0; i < sheets.length; ++i) {
+                        var elem = sheets[i];
+                        var parent = elem.parentElement || head;
+                        parent.removeChild(elem);
+                        var rel = elem.rel;
+                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                        }
+                        parent.appendChild(elem);
+                    }
+                }
+                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                var address = protocol + window.location.host + window.location.pathname + '/ws';
+                var socket = new WebSocket(address);
+                socket.onmessage = function (msg) {
+                    if (msg.data == 'reload') window.location.reload();
+                    else if (msg.data == 'refreshcss') refreshCSS();
+                };
+                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                    console.log('Live reload enabled.');
+                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                }
+            })();
+        }
+        else {
+            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+        }
+        // ]]>
+    </script>
+</body>
+
+
+
+{% endblock %}

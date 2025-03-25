@@ -1,0 +1,251 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../../../favicon.ico">
+
+  <title>Bottom navbar example for Bootstrap</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'dist3/css/bootstrap.min.css'%}" rel="stylesheet">
+  
+</head>
+
+<body class="d-flex flex-column h-100 overflow-hidden bg-dark text-light">
+    {% block content %}
+    
+  <main role="main" class="container-fluid mt-3">
+    <div class="row">
+      <div class="col-md-8 blog-main form-control " style="left: 12px;">
+        <div class="modal-header bg-info">
+          <h5 class="modal-title" id="Mombamoba">Mombamoba</h5>
+        </div>
+       
+        <div class="p-3 overflow-hiden">
+          <form action="" method="get">
+            {%csrf_token%}
+            <div class="row g-2 ">
+
+              <div class="col-6 mb-3 form-control">
+                <label for="id_id_karatrat" class="form-label">Laharan'ny karatra</label>
+              </div>
+              <div class="col-6 mb-3 form-control">
+                <input type="number" class="form-control" id="id_id_karatra" placeholder="Laharan'ny karatra">
+              </div>
+
+              <div class="col-6 mb-3 form-control">
+                <label for="id_Anarana" class="form-label">Anarana</label>
+              </div>
+              <div class="col-6 mb-3 form-control">
+                <input type="texte" class="form-control" id="id_Anarana" placeholder="Anarana">
+              </div>
+
+              <div class="col-6 mb-3 form-control">
+                <label for="id_FanampinAnarana" class="form-label">Fanampin' Anarana</label>
+              </div>
+              <div class="col-6 mb-3 form-control">
+                <input type="texte" class="form-control" id="id_FanampinAnarana" placeholder="Fanampin'Anarana">
+              </div>
+
+              <div class="col-6  mb-3 form-control">
+                <label for="id_vavy"> vavy</label>
+              </div>
+              <div class="col-6  mb-3 text-center form-control w-100">
+                <input type="checkbox" class="form-check-input" name="genre" id="id_Vavy">
+              </div>
+              <div class="col-6  mb-3 form-control">
+                <label for="id_Lahy">Lahy</label>
+              </div>
+              <div class="col-6  mb-3 text-center form-control w-100">
+                <input type="radio" class="form-check-input" name="genre" id="id_Lahy">
+              </div>
+
+              <div class="col-6 mb-3 form-control">
+                <label for="id_Addr" class="form-label">Adresy</label>
+              </div>
+              <div class="col-6 mb-3 form-control">
+                <input type="texte" class="form-control" id="id_Addr" placeholder="Adresy">
+              </div>
+
+              <div class="col-6 mb-3 form-control">
+                <label for="id_Tel" class="form-label">Tel</label>
+              </div>
+              <div class="col-6 mb-3 form-control">
+                <input type="tel" class="form-control" id="id_Tel" placeholder="Tel">
+              </div>
+
+              <div class="col-6 mb-3 form-control">
+                <label for="id_Asa" class="form-label">Asa</label>
+              </div>
+              <div class="col-6 mb-3 form-control">
+                <input type="texte" class="form-control" id="id_Asa" placeholder="Asa">
+              </div>
+
+              <div class="col-6 mb-3 form-control">
+                <label for="id_Faritra" class="form-label">Faritra</label>
+              </div>
+              <div class="col-6 mb-3 form-control">
+                <input type="text" class="form-control" id="id_Faritra" placeholder="Faritra">
+              </div>
+
+              <div class="col-6 mb-3 form-control">
+                <label for="id_FiagonanaNiavina" class="form-label">Fiagonana Niavina</label>
+              </div>
+              <div class="col-6 mb-3 form-control">
+                <input type="texte" class="form-control" id="id_FiagonanaNiavina" placeholder="Fiagonana Niavina">
+              </div>
+
+              <div class="col-6 mb-3 form-control">
+                <label for="id_TaonaNatogavana" class="form-label">Taona Natogavana</label>
+              </div>
+              <div class="col-6 mb-3 form-control">
+                <input type="number" class="form-control" id="id_TaonaNatogavana" placeholder="Taona Natogavana">
+              </div>
+
+
+              <div class="col-6 mb-3 form-control">
+                <label for="id_TaonaNampadray" class="form-label">Taona Nampadray</label>
+              </div>
+              <div class="col-6 mb-3 form-control">
+                <input type="number" class="form-control" id="id_TaonaNampadray" placeholder="Taona Nampadray">
+              </div>
+
+
+
+              <div class="col-6 mb-3 form-control">
+                <label for="Sampana" class="form-label" id="id_Sampana">Sampana</label>
+              </div>
+              <div class="col-6 mb-3 form-control">
+                <select class="form-select w-100" id="Sampana">
+                  <option value="Sampana1">Sampana1</option>
+                  <option value="Sampana2">Sampana2</option>
+                  <option value="Sampana3">Sampana3</option>
+                  <option value="Sampana3">Sampana4</option>
+
+                </select>
+              </div>
+
+            </div>
+
+
+
+          
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary w-35" id="Ampiditra">Ampiditra</button>
+      </div></form>
+      </div>
+      
+
+      <aside class="col-md-4 blog-sidebar text-center w-100">
+        <div class="container-fluid form-control pl-4 pr-4 w-100">
+          <div class="text-center w-100">
+            <img src="{% static 'logo/asset/74.png' %}" class="img-responsive  border border-secondary rounded"
+              style="display:inline;" alt="Bird" width="100" height="100">
+          </div>
+          <form action="">
+            <div class="row g-2 mt-3 mb-3">
+
+              <div class="col-5 mb-3 form-control">
+                <label for="hikaroka" class="form-label">hikaroka</label>
+              </div>
+              <div class="col-7 mb-3 form-control w-100">
+                <input type="text" class="form-control" id="hikaroka" placeholder="hikaroka">
+              </div>
+            </div>
+          </form>
+        </div>
+      </aside>
+
+    </div><!-- /.row -->
+  </main><!-- /.container -->
+    {% endblock %}
+  
+  </div>
+
+  <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Bottom navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+        <li class="nav-item dropup">
+          <a class="nav-link dropdown-toggle" href="https://getbootstrap.com" id="dropdown10" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Dropup</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown10">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write(`<script src="{% static 'assets/js/vendor/jquery-slim.min.js'%}"><\/script>`)</script>
+  <script src="{% static 'assets/js/vendor/popper.min.js'%}"></script>
+  <script src="{% static 'dist3/js/bootstrap.min.js'%}"></script>
+  <script src="{% static 'assets/js/vendor/jquery-slim.min.js'%}"></script>
+  <script>
+    // <![CDATA[  <-- For SVG support
+    if ('WebSocket' in window) {
+      (function () {
+        function refreshCSS() {
+          var sheets = [].slice.call(document.getElementsByTagName("link"));
+          var head = document.getElementsByTagName("head")[0];
+          for (var i = 0; i < sheets.length; ++i) {
+            var elem = sheets[i];
+            var parent = elem.parentElement || head;
+            parent.removeChild(elem);
+            var rel = elem.rel;
+            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+              var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+              elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+            }
+            parent.appendChild(elem);
+          }
+        }
+        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+        var address = protocol + window.location.host + window.location.pathname + '/ws';
+        var socket = new WebSocket(address);
+        socket.onmessage = function (msg) {
+          if (msg.data == 'reload') window.location.reload();
+          else if (msg.data == 'refreshcss') refreshCSS();
+        };
+        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+          console.log('Live reload enabled.');
+          sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+        }
+      })();
+    }
+    else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+        // ]]>
+  </script>
+</body>
+
+</html>

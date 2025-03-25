@@ -1,0 +1,159 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mon blog sur les crêpes bretonnes{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ico.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/folio.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/w3.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styls.css' %}">
+    <link rel="stylesheet" href="{% static 'css/maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' %}">
+
+    <link href="{% static 'mdeditor/css/editormd.min.css' %}" rel="stylesheet">
+  <link href="{% static 'mdeditor/css/editormd.preview.css' %}" rel="stylesheet">
+
+    <style>
+   
+        body{ background-color: #333;
+            font-size: 18px;
+            color: #000;
+        }
+    </style>
+    
+    <script src="{% static 'js/dom_js.js' %}" defer></script>
+
+    {% block static %}{% endblock %}
+    
+    
+    
+
+    <script src="{% static 'java.js' %}"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="{% static 'js/sclol_files/styles.css' %}" rel="stylesheet">
+    <script src="{% static 'js/sclol_files/jquery-1.10.2.min.js.téléchargé' %}"></script>
+    <script src="{% static 'js/sclol_files/knockout-3.0.0.js.téléchargé' %}"></script>
+    <script src="{% static 'js/sclol_files/globalize.min.js.téléchargé' %}"></script>
+    <script src="{% static 'js/sclol_files/dx.chartjs.js.téléchargé' %}"></script>
+</head>
+
+
+<body>
+    <div class="heder ">
+        <div class="heder-contener">
+
+            <div id="Titre">
+                <div id="d1" class="anime1 ">
+                    <img id="logo0" src="{% static 'logo/asset/74.png' %}" alt="">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="top-nav">
+        {% block nav %}{% endblock %}
+        
+    </div>
+
+    <div class="contener  " contener spy>
+        <div class="R-m" R-m>
+            <a href="">
+                <svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32"
+                    data-view-component="true" class="octicon octicon-mark-github">
+                    <path
+                        d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z">
+                    </path>
+                </svg></a>
+            <a href="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 1024 1024">
+                    <circle cx="512" cy="512" r="512" style="fill: black;" />
+                    <path
+                        d="M689.43 349a422.21 422.21 0 0 0-104.22-32.32 1.58 1.58 0 0 0-1.68.79 294.11 294.11 0 0 0-13 26.66 389.78 389.78 0 0 0-117.05 0 269.75 269.75 0 0 0-13.18-26.66 1.64 1.64 0 0 0-1.68-.79A421 421 0 0 0 334.44 349a1.49 1.49 0 0 0-.69.59c-66.37 99.17-84.55 195.9-75.63 291.41a1.76 1.76 0 0 0 .67 1.2 424.58 424.58 0 0 0 127.85 64.63 1.66 1.66 0 0 0 1.8-.59 303.45 303.45 0 0 0 26.15-42.54 1.62 1.62 0 0 0-.89-2.25 279.6 279.6 0 0 1-39.94-19 1.64 1.64 0 0 1-.16-2.72c2.68-2 5.37-4.1 7.93-6.22a1.58 1.58 0 0 1 1.65-.22c83.79 38.26 174.51 38.26 257.31 0a1.58 1.58 0 0 1 1.68.2c2.56 2.11 5.25 4.23 8 6.24a1.64 1.64 0 0 1-.14 2.72 262.37 262.37 0 0 1-40 19 1.63 1.63 0 0 0-.87 2.28 340.72 340.72 0 0 0 26.13 42.52 1.62 1.62 0 0 0 1.8.61 423.17 423.17 0 0 0 128-64.63 1.64 1.64 0 0 0 .67-1.18c10.68-110.44-17.88-206.38-75.7-291.42a1.3 1.3 0 0 0-.63-.63zM427.09 582.85c-25.23 0-46-23.16-46-51.6s20.38-51.6 46-51.6c25.83 0 46.42 23.36 46 51.6.02 28.44-20.37 51.6-46 51.6zm170.13 0c-25.23 0-46-23.16-46-51.6s20.38-51.6 46-51.6c25.83 0 46.42 23.36 46 51.6.01 28.44-20.17 51.6-46 51.6z"
+                        style="fill:#ffffff" />
+                </svg></a>
+            <a href="">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M16 0C7.19999 0 0 7.18399 0 16.032C0 24.032 5.85599 30.672 13.504 31.872V20.672H9.43999V16.032H13.504V12.496C13.504 8.47999 15.888 6.27199 19.552 6.27199C21.296 6.27199 23.12 6.57599 23.12 6.57599V10.528H21.104C19.12 10.528 18.496 11.76 18.496 13.024V16.032H22.944L22.224 20.672H18.496V31.872C22.2663 31.2765 25.6995 29.3528 28.1758 26.4481C30.6522 23.5433 32.0085 19.849 32 16.032C32 7.18399 24.8 0 16 0Z"
+                        fill="black"></path>
+                </svg></a>
+            <a href="">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                    height="32px" viewBox="0 -28.5 256 256" version="1.1" preserveAspectRatio="xMidYMid">
+
+                    <g>
+                        <path
+                            d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"
+                            fill="#00000" fill-rule="black">
+
+                        </path>
+
+                    </g>
+                </svg></a>
+
+        </div>
+
+        <div id="n" class="n" nav>
+
+            <div class="ent"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times</a></div>
+
+            <div class="nav scroll">
+                {% block menu %}
+                {% endblock %}
+            </div>
+
+        </div>
+
+        
+        <div class="main scroll" main>
+
+            <hr>
+
+            {% block content %}
+            {% endblock %}
+            
+
+            <div class="popup" id="popup">
+                <img src="./asset/iTBHelp.png" alt="img">
+                <h2>Un porte folio</h2>
+                <p>Ce si est un petit exemple de porte folio.</p>
+                <p>Realisé par :</p>
+                <p>CDF "CoDe Forcing" || "CoDe Forking"</p>
+                <button type="button" onclick="Closepopup()">OK</button>
+
+            </div>
+
+        </div>
+
+        <div class="R-br" R-br>
+            <!--
+            <a href="#section1" class="section1" section1>
+                Compatibliter
+                </a>
+
+            <a href="#section2" class="section2" section2>
+                Presentation
+                </a>
+            <a href="#section3" section3>
+                TP
+                </a>
+-->
+        </div>
+
+
+
+
+
+</body>
+
+</html>

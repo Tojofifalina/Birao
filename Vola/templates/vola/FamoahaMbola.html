@@ -1,0 +1,76 @@
+{% extends "vola/Vatany.html" %}
+
+               
+              <h1>
+                {% block Titres %}
+                Famoaham-bola :
+                {% endblock %}
+              </h1>
+        {% block content %}
+             <!--Eto-->
+             {% for error in form.non_field_errors %}
+             <div class="alert alert-danger" role="alert"><H1>{{ error }}</H1></div>
+             {% endfor %}
+             <div class="p-3 overflow-hiden container-fluid">
+                 <form action="" method="post">
+                     {% csrf_token %}
+                     
+                     <div class="row g-2 ">
+                         <div class="col-6 mb-3 form-control">
+                             <label for="id_Taona" class="form-label">Taona</label>
+                         </div>
+                         <div class="col-6 mb-3 form-control">
+                             <input class="form-control" type="number" name="Taona" id="id_Taona" required>
+                             {% for error in form.nom.errors %}
+                             <div class="text-danger">{{ error }}</div>
+                             {% endfor %}
+                         </div>
+
+                         <div class="col-6 mb-3 form-control">
+                            <label for="id_Daty" class="form-label">Daty</label>
+                        </div>
+                        <div class="col-6 mb-3 form-control">
+                            <input class="form-control" type="date" name="Daty" id="id_Daty" required>
+                            {% for error in form.nom.errors %}
+                            <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-6 mb-3 form-control">
+                            <label for="id_Antony" class="form-label">Antony</label>
+                        </div>
+                        <div class="col-6 mb-3 form-control">
+                            <input class="form-control" type="text" name="Antony" id="id_Antony" required>
+                            {% for error in form.nom.errors %}
+                            <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-6 mb-3 form-control">
+                            <label for="id_Vola" class="form-label">Vola</label>
+                        </div>
+                        <div class="col-6 mb-3 form-control">
+                            <input class="form-control" type="number" name="Vola" id="id_Vola" required>
+                            {% for error in form.nom.errors %}
+                            <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-6 mb-3 form-control">
+                            <label for="id_Fanamarihana" class="form-label">Fanamarihana</label>
+                        </div>
+                        <div class="col-6 mb-3 form-control">
+                            <textarea name="Fanamarihana" cols="40" rows="10" required="" id="id_Fanamarihana"></textarea>
+                            {% for error in form.nom.errors %}
+                            <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary w-35" id="Ampiditra">Ampiditra</button>
+                        </div>
+
+                     </div>
+                 </form>
+ 
+            </div>
+            
+         {% endblock %}
+         

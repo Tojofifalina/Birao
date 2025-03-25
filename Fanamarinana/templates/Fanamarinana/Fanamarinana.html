@@ -1,0 +1,118 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Signin Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'dist3/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+    <style>
+        html,
+body {
+  height: 100%;
+}
+
+body {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+    </style>
+    <script src="{% static 'js/dom_js.js' %}" defer></script>
+    <style>
+     
+     
+      .main_pe {
+          grid-column: 3;
+          /*background: #fff;*/
+          background: linear-gradient(45deg, #616161, hsl(0deg 0% 0%)) center center no-repeat;
+          border-radius: 6px;
+          
+          top: 50%;
+          left: 50%;
+          transform: translate(-0%, -0%) scale(0);
+          text-align: center;
+          padding: 0 30px 30px;
+          /*color: #333;*/
+          
+          transition: transform 0.9s, top 0.9s;
+          
+      }
+    </style>
+  </head>
+
+  <body class="text-center">
+    
+    
+  
+    <form class="form-signin" method="post">
+        
+        {%for message in messages%}
+            <div class="alert alert-info" role="alert"><h1>{{message}}</h1></div>
+        {%endfor%}
+        {% csrf_token %}
+        
+      <!--<img class="mb-4" src="" alt="" width="72" height="72">-->
+      <!--<h1 class="h3 mb-3 font-weight-normal">Ra Hanokatra</h1>-->
+      <label for="id_username" class="sr-only">Anarana</label>
+      <input type="text" id="id_username" name="username" autocapitalize="none" class="form-control" placeholder="Anarana" required autofocus>
+      <label for="id_password" class="sr-only">Password</label>
+      <input type="password" name="password" id="id_password" class="form-control" placeholder="Password" required>
+      
+        
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Anokatra</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2024-2025 by CDF</p>
+      <a onclick="Anim()" href="{% url 'Fitatanana:Pejy1'%}" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" >X</a>
+    </form>
+  </body>
+</html>

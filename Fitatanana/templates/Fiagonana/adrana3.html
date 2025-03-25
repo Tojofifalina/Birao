@@ -1,0 +1,417 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Fampidirana Adidy @ Taona Vaovao</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'dist3/css/bootstrap.min.css'%}" rel="stylesheet">
+
+</head>
+
+
+<body>
+    <main role="main" class="container-fluid mt-3 " style="padding: 8px;padding-bottom: 50px;">
+
+        <div class="form-control">
+            <div class="modal-header bg-m">
+                <h5 class="modal-title" id="Adidy">Adidy</h5>
+                <a href="{% url 'Fitatanana:Pejy1' %}" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" >X</a>
+            </div>
+        </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            
+                <table class="table table-striped   bg-dark text-white">
+
+                    <thead class="date-center">
+
+                        <tr>
+                            <th colspan="4" class="text-center bg-info">
+                                <select name="Mpino" required id="id_Mpino">
+                                    <option value="{{anarana.id}}" selected>{{anarana.Anarana}}</option>
+                                </select>
+                                {% for error in form.non_field_errors %}
+                                <div class="alert alert-danger" role="alert"><H1>{{ error }}</H1></div>
+                                {% endfor %}
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <th colspan="4" class="text-center bg-primary">
+                                Taona
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="4" class="text-center bg-primary">
+                                <div>
+                                    
+
+
+
+                                    <input class="form-control" type="number" name="Taona" value="2025"value="{{diso.Taona|default:'2025'}}" required id="id_Taona">
+
+                                </div>
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <th>volana</th>
+                            <th>Kristianina</th>
+                            <th>Mpandray</th>
+                            <th>Daty</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+
+
+                        <tr>
+                            <th>
+                                <label for="" class="form-label">January</label>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="J" value="{{diso.J|default:'0'}}" required id="id_J" >
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="P_J" value="{{diso.P_J|default:'0'}}" required id="id_P_J" {%if anarana.M_P == "K" %} readonly {%endif%}>
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="date" name="J_Date"  id="id_J_Date" value="{{diso.J_Date|default:''}}" >
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Febroary
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="F" value="{{diso.f|default:'0'}}" required id="id_F">
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="P_F" value="{{diso.P_f|default:'0'}}" required id="id_P_F" {%if anarana.M_P == "K"%} readonly {%endif%}>
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                <input class="form-control" type="date" name="F_Date"  id="id_F_Date" value="{{diso.F_Date|default:''}}">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Marsa</th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="M" value="{{diso.M|default:'0'}}" required id="id_M">
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                <input class="form-control" type="number" name="P_M" value="{{diso.P_M|default:'0'}}" required id="id_P_M" {%if anarana.M_P == "K"%} readonly {%endif%}>
+
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="date" name="M_Date"  id="id_M_Date"value="{{diso.M_Date|default:''}}">
+
+                                </div>
+                            </th>
+                        </tr>
+
+
+                        <tr>
+                            <th>April</th>
+                            <th>
+                                <div>
+                                <input class="form-control" type="number" name="Av" value="{{diso.Av|default:'0'}}" required id="id_Av">
+
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                <input class="form-control" type="number" name="P_Av" value="{{diso.P_Av|default:'0'}}" required id="id_P_Av" {%if anarana.M_P == "K"%} readonly {%endif%}>
+
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="date" name="Av_Date"  id="id_Av_Date" value="{{diso.Av_Date|default:''}}">
+
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>May</th>
+                            <th>
+                                <div>
+                                <input class="form-control" type="number" name="Ma" value="{{diso.Ma|default:'0'}}" required id="id_Ma">
+
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="P_Ma" value="{{diso.P_Ma|default:'0'}}" required id="id_P_Ma" {%if anarana.M_P == "K"%} readonly {%endif%}>
+
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="date" name="Ma_Date"  id="id_Ma_Date" value="{{diso.Ma_Date|default:''}}">
+
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Jona</th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="Ji" value="{{diso.Ji|default:'0'}}" required id="id_Ji">
+
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="P_Ji" value="{{diso.P_Ji|default:'0'}}" required id="id_P_Ji" {%if anarana.M_P == "K"%} readonly {%endif%}>
+
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="date" name="Ji_Date"  id="id_Ji_Date" value="{{diso.Ji_Date|default:''}}">
+
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Jolay</th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="Ju" value="{{diso.Ju|default:'0'}}" required id="id_Ju">
+
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="P_Ju" value="{{diso.P_Ju|default:'0'}}" required id="id_P_Ju" {%if anarana.M_P == "K"%} readonly {%endif%}>
+
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="date" name="Ju_Date"  id="id_Ju_Date" value="{{diso.Ju_Date|default:''}}">
+
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Aogostra</th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="Ag" value="{{diso.Ag|default:'0'}}" required id="id_Ag">
+
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="P_Ag" value="{{diso.P_Ag|default:'0'}}" required id="id_P_Ag" {%if anarana.M_P == "K"%} readonly {%endif%}>
+
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="date" name="Ag_Date"  id="id_Ag_Date" value="{{diso.Ag_Date|default:''}}">
+
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Septembra</th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="S" value="{{diso.S|default:'0'}}" required id="id_S">
+
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="P_S" value="{{diso.P_S|default:'0'}}" required id="id_P_S" value="{{diso.P_S|default:'0'}}" {%if anarana.M_P == "K"%} readonly {%endif%}>
+
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                <input class="form-control" type="date" name="S_Date"  id="id_S_Date" value="{{diso.S_Date|default:''}}">
+
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Oktrobra</th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="Ak" value="{{diso.Ak|default:'0'}}" required id="id_Ak">
+
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="P_Ak" value="{{diso.P_Ak|default:'0'}}" required id="id_P_Ak" {%if anarana.M_P == "K"%} readonly {%endif%}>
+
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="date" name="Ac_Date"  id="id_Ac_Date" value="{{diso.Ac_Date|default:''}}">
+
+                                </div>
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <th>Novambra</th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="N" value="{{diso.N|default:'0'}}" required id="id_N">
+
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="P_N" value="{{diso.P_N|default:'0'}}" required id="id_P_N" {%if anarana.M_P == "K"%} readonly {%endif%}>
+
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="date" name="N_Date"  id="id_N_Date" value="{{diso.N_Date|default:''}}">
+
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Desanbra</th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="D" value="{{diso.D|default:'0'}}" required id="id_D">
+
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="number" name="P_D" value="{{diso.P_D|default:'0'}}" required id="id_P_D" {%if anarana.M_P == "K"%} readonly {%endif%}>
+
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <input class="form-control" type="date" name="D_Date"  id="id_D_Date" value="{{diso.D_Date|default:'0'}}">
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary w-35" id="Ampiditra">Ampiditra</button>
+                </div>
+
+        </form>
+
+</main><!-- /.container -->
+
+</body>
+<nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Bottom navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+            <li class="nav-item dropup">
+                <a class="nav-link dropdown-toggle" href="https://getbootstrap.com" id="dropdown10"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropup</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown10">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script>window.jQuery || document.write(`<script src="{% static 'assets/js/vendor/jquery-slim.min.js'%}"><\/script>`)</script>
+<script src="{% static 'assets/js/vendor/popper.min.js'%}"></script>
+<script src="{% static 'dist3/js/bootstrap.min.js'%}"></script>
+<script src="{% static 'assets/js/vendor/jquery-slim.min.js'%}"></script>
+<script>
+    // <![CDATA[  <-- For SVG support
+    if ('WebSocket' in window) {
+        (function () {
+            function refreshCSS() {
+                var sheets = [].slice.call(document.getElementsByTagName("link"));
+                var head = document.getElementsByTagName("head")[0];
+                for (var i = 0; i < sheets.length; ++i) {
+                    var elem = sheets[i];
+                    var parent = elem.parentElement || head;
+                    parent.removeChild(elem);
+                    var rel = elem.rel;
+                    if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                        var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                        elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                    }
+                    parent.appendChild(elem);
+                }
+            }
+            var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+            var address = protocol + window.location.host + window.location.pathname + '/ws';
+            var socket = new WebSocket(address);
+            socket.onmessage = function (msg) {
+                if (msg.data == 'reload') window.location.reload();
+                else if (msg.data == 'refreshcss') refreshCSS();
+            };
+            if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                console.log('Live reload enabled.');
+                sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+            }
+        })();
+    }
+    else {
+        console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+        // ]]>
+</script>
+</body>
+
+</html>

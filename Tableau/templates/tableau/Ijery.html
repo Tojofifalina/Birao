@@ -1,0 +1,535 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="{% static 'dist2/css/bootstrap.min.css' %}">
+    <script src="{% static 'ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js' %}"></script>
+    <script src="{% static 'dist2/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'js/code.js' %}" defer=""></script>
+    <script src="{% static '/assets/js/vendor/jquery-slim.min.js'%}"></script>
+    <!---->
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ico.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/folio.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/w3.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styls.css' %}">
+
+    <script src="{% static 'js/dom_js.js' %}" defer></script>
+    <!---->
+
+    <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+    <script src="{% static 'dist2/js/bootstrap.bundle.min.js' %}"></script>
+    <link href="{% static 'dist/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+
+    <style>
+        .scroll {
+
+            z-index: 1;
+            overflow: auto;
+            content: "";
+            clear: both;
+            /*margin-bottom: 20px;*/
+            transition: 0.5s;
+            scroll-behavior: smooth;
+
+        }
+
+        .scroll {
+            left: 0;
+            overflow-x: scroll;
+            overflow-y: scroll;
+            transition: 0.5s;
+
+        }
+
+
+        .scroll::-webkit-scrollbar {
+            display: n0;
+        }
+
+        .scroll {
+            -ms-overflow-style: n0;
+            overflow: -moz-scrollbars-n0;
+        }
+
+        .scroll::-webkit-scrollbar {
+            width: 0 !important
+        }
+
+        */ .scroll::-webkit-scrollbar {
+            display: n0;
+        }
+
+        .scroll {
+            -ms-overflow-style: n0;
+            overflow: -moz-scrollbars-n0;
+        }
+    </style>
+
+    <!--<link rel="stylesheet" href="dist/css/bootstrap.min.css">-->
+
+    <!--<script src="dist/js/bootstrap.min.js"></script>-->
+    <link href="{% static 'mdeditor/css/editormd.min.css' %}" rel="stylesheet">
+    <link href="{% static 'mdeditor/css/editormd.preview.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'responsiv-rectif.css' %}">
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {
+            height: 450px
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
+    <style>
+        .main_pe {
+            grid-column: 3;
+            /*background: #fff;*/
+            background: linear-gradient(45deg, #616161, hsl(0deg 0% 0%)) center center no-repeat;
+            border-radius: 6px;
+
+            top: 50%;
+            left: 50%;
+            transform: translate(-0%, -40%) scale(0);
+            text-align: center;
+            padding: 0 30px 30px;
+            color: #333;
+
+            transition: transform 0.9s, top 0.9s;
+
+        }
+
+
+        html,
+        body {
+            height: 100%;
+            /*background-color: #333;*/
+            /*background-color: #000000;*/
+
+        }
+
+        /*.editormd-preview-container pre,
+        .editormd-html-preview pre {
+            background: #3a4b43;
+            
+        }*/
+    </style>
+
+</head>
+
+<body class="text d-flex flex-column h-100">
+    <div class="container-fluid main  scroll h-100" main>
+        <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+            <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">FJKM ADRAISORA</a>
+            <!--<form method="get" class="w-100"><input class="form-control form-control-dark w-100" type="text"
+                    placeholder="Ikaroka" id="q" name="q" aria-label="Search"></form>-->Ff
+            <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link" href="{% url 'Fanamarinana:anidy' %}">Anidy</a>
+                </li>
+            </ul>
+        </nav>
+
+
+        <style>
+            /* Styles pour l'offcanvas */
+            .offcanvas {
+                position: fixed;
+                top: 55PX;
+                left: -300px;
+                /* Hors de l'écran */
+                width: 300px;
+                height: 100%;
+                background-color: #f8f9fa;
+                transition: all 0.3s ease-in-out;
+                z-index: 1045;
+            }
+
+            .offcanvas.show {
+                left: 0;
+                /* Glisse sur l'écran */
+            }
+        </style>
+        <!-- Offcanvas -->
+        <div class="offcanvas" id="myOffcanvas">
+            <div class="p-15">
+                <button class="btn btn-secondary mb-3" id="offcanvasClose">Fermer</button>
+                <h5>Contenu Offcanvas</h5>
+                <p>Texte ou menu ici.</p>
+                {% block menu %}
+
+                {% endblock %}
+            </div>
+        </div>
+
+
+        <script>
+            // JavaScript pour activer/désactiver l'offcanvas
+            document.getElementById('offcanvasToggle').addEventListener('click', function () {
+                document.getElementById('myOffcanvas').classList.add('show');
+            });
+
+            document.getElementById('offcanvasClose').addEventListener('click', function () {
+                document.getElementById('myOffcanvas').classList.remove('show');
+            });
+        </script>
+
+        <div class="containeur-fluid  d-flex flex-column h-100">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <nav class="col-md-2 d-n0 d-md-block bg-light sidebar">
+                        <div class="sidebar-sticky ">
+                            <ul class="nav flex-column">
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'Fitatanana:Pejy1'%}">
+                                        <span data-feather="file"></span>
+                                        Hivoka
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'Tableau:Tableau' %}Adidy">
+                                        <span data-feather="file"></span>
+                                        Adidy
+                                    </a>
+                                </li>
+
+
+                            </ul>
+
+                            <h6
+                                class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                <span>Katekomen</span>
+
+                            </h6>
+                            <ul class="nav flex-column mb-2">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'Fitatanana:AmpiditraKatekomen' %}">
+                                        Ampiditra Katekomen
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'Tableau:Tableau' %}Katekomen/">
+                                        Katekomen
+                                    </a>
+                                </li>
+
+
+
+                            </ul>
+                            <h6
+                                class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                <span>Tobana</span>
+
+                            </h6>
+                            <ul class="nav flex-column mb-2">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'Tableau:Tableau' %}stat/">
+                                        Tobana Mahakasika ireo Mpino
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'Tableau:Tableau' %}TobanaKatekomen/">
+                                        Tobana Mahakasika ireo Katekomen
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'Tableau:Tableau' %}Tobana_Arabola">
+                                        Tobana Mahakasika ireo vola (Adidy,...)
+                                    </a>
+                                </li>
+
+
+                            </ul>
+
+                            <h6
+                                class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                <span>Vola miditra sy mivoka</span>
+
+                            </h6>
+                            <ul class="nav flex-column mb-2">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'Vola:Vola_Niditra' %}">
+                                        Ampiditra Vola
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'Vola:Vola_Nivoka' %}">
+                                        Amoka Vola
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                            <h6
+                                class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                <span>Tobana</span>
+
+                            </h6>
+                            <ul class="nav flex-column mb-2">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'Tableau:Tableau' %}stat/">
+                                        Tobana Mahakasika ireo Mpino
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'Tableau:Tableau' %}Tobana_Arabola">
+                                        Tobana Mahakasika ireo vola (Adidy,...)
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                            <h6
+                                class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                <span>Amoka ho Exel</span>
+
+                            </h6>
+                            <ul class="nav flex-column mb-2">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'Tableau:Tableau' %}export_Mpino_Exel/">
+                                        Amoka ho Exel ireo Mpino
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'Tableau:Tableau' %}export_Adidy_Exel/">
+                                        Amoka ho Exel ireo Adidy
+                                    </a>
+                                </li>
+
+                                <h6
+                                    class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                    <span>Ampiditra amin'ny Exel</span>
+
+                                </h6>
+                                <ul class="nav flex-column mb-2">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'Tableau:Tableau' %}import_Mpino_Exel/">
+                                            Ampiditra Mpino
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'Tableau:Tableau' %}import_Adidy_Exel/">
+                                            Ampiditra Adidy
+                                        </a>
+                                    </li>
+
+                                </ul>
+                        </div>
+                    </nav>
+
+                    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                        <div
+                            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+
+                            <h1 class="h2">{{anarana.LaharanaKaratra}}</h1>
+                            <div class="btn-toolbar mb-2 mb-md-0">
+                                <div class="btn-group mr-2">
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!--eto-->
+                        <p>Anarana : {{anarana.Anarana}}</p>
+                        <p>Fanampiny : {{anarana.Fanampiny}}</p>
+                        <p>Taona nahaterahana : {%if anarana.Teraka != 0 %} {{anarana.Teraka}} {%endif%}</p>
+                        <p>Taona : {%if anarana.Taona != N0 %} {{anarana.Taona}} {%endif%}</p>
+                        <p>Adresy : {{anarana.Adresy}}</p>
+                        <p>Faritra : {{anarana.Faritra}}</p>
+                        <p>Fiday : {%if anarana.Fiday != N0 %} {{anarana.Fiday}} {%endif%}</p>
+
+                        <br>
+                        <table class="table table-striped scroll table-bordered border-primary">
+                            <thead>
+
+                                <tr>
+
+                                    <th scope="col">Vita batisa </th>
+                                    <th style="text-align: center;">{%if anarana.batisa == "ENY"%}✔{%else%}❌{%endif%}
+                                    </th>
+
+                                </tr>
+                                <tr>
+                                    <th scope="col">Mpandray</th>
+                                    <th style="text-align: center;">{%if anarana.M_P == "P"%}✔{%else%}❌{%endif%}</th>
+                                </tr>
+                            </thead>
+
+                        </table>
+                        <br>
+
+                        <p>Fiagonana niavina : {{anarana.FiagonanaNiavina}}</p>
+                        <p>Taona nahatogavana teo aminy Fiagonana : {%if anarana.TaonaNahatogavanaTaoAmpiagonana != 0 %}
+                            {{anarana.TaonaNahatogavanaTaoAmpiagonana}} {%endif%}</p>
+                        <br>
+                        {%if fanamarihana.Fanamarihana%}
+                        Fanamarihana :
+                        <p>{{fanamarihana.Fanamarihana}}</p>
+                        {%endif%}
+
+                        <!------------------------------------------------------>
+                        <div class="container mt-5">
+                            <h2 class="text-center"></h2>
+                            <form class="mb-4" method="post">
+                                {%csrf_token%}
+                                
+                                <div class="mb-3">
+                            
+                                    <input type="text" name="Lohanteny" maxlength="250" id="id_Lohanteny" class="form-control" placeholder="Lohanteny">
+                                    <textarea name="Fanamarihana" maxlength="3000" id="id_Fanamarihana"
+                                        class="form-control" placeholder="Fanamarihana" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Ampiditra</button>
+                            </form>
+                            {%if fanamarihana%}
+                            <h2 class="text-center">Fanamarihana</h2>
+                            {%endif%}
+                            <div class="accordion" id="monAccordion">
+
+
+                                {% for Fanamarihana in fanamarihana %}
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading{{ Fanamarihana.id }}">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse{{ Fanamarihana.id }}"
+                                            aria-expanded="false" aria-controls="collapse{{ Fanamarihana.id }}">
+                                            {%if Fanamarihana.Lohanteny%} {{ Fanamarihana.Lohanteny}}{%else%} Fanamarihana {%endif%}
+
+                                        </button>
+                                    </h2>
+                                    <div id="collapse{{ Fanamarihana.id }}" class="accordion-collapse collapse"
+                                        aria-labelledby="heading{{ Fanamarihana.id }}" data-bs-parent="#monAccordion">
+                                        <div class="accordion-body">
+                                            <div class="container pb-3 fs-3">{{ Fanamarihana.Fanamarihana }}</div>
+
+                                            <form method="post"
+                                                action="{% url 'Tableau:Tableau'%}amafa_Fanamarihana/{{ Fanamarihana.id }}">
+                                                {% csrf_token %}
+                                                <button type="submit"
+                                                    style="background-color: rgba(254, 107, 107, 0.356);"
+                                                    class="btn btn-secondary w-100 bg-rede"
+                                                    onclick="return confirm('fafana ')">🗑</button>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+                                {% endfor %}
+
+
+                            </div>
+                        </div>
+
+
+                </div>
+            </div>
+
+            <script>
+                $(document).ready(function () {
+                    $("#FanamarihanaForm").submit(function (event) {
+                        event.preventDefault();
+                        var titre = $("#titre").val();
+                        var contenu = $("#contenu").val();
+
+                        $.ajax({
+                            type: "POST",
+                            url: "{% url 'Tableau:Tableau'%}ampiditra_fanamarihana/1",
+                            data: {
+                                titre: titre,
+                                contenu: contenu,
+                                csrfmiddlewaretoken: "{{ csrf_token }}"
+                            },
+                            success: function (response) {
+                                var FanamarihanaHtml = `
+                                    <div class="accordion-item" id="Fanamarihana-${response.id}">
+                                        <h2 class="accordion-header" id="heading${response.id}">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${response.id}" aria-expanded="false">
+                                                ${response.titre}
+                                            </button>
+                                            <button class="btn btn-danger btn-sm ms-2" onclick="supprimerFanamarihana(${response.id})">Supprimer</button>
+                                        </h2>
+                                        <div id="collapse${response.id}" class="accordion-collapse collapse">
+                                            <div class="accordion-body">
+                                                ${response.contenu}
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                                $("#FanamarihanaAccordion").prepend(FanamarihanaHtml);
+                                $("#titre").val('');
+                                $("#contenu").val('');
+                            }
+                        });
+                    });
+                });
+
+                function supprimerFanamarihana(id) {
+                    $.ajax({
+                        type: "POST",
+                        url: `/supprimer_Fanamarihana/${id}/`,
+                        data: {
+                            csrfmiddlewaretoken: "{{ csrf_token }}"
+                        },
+                        success: function () {
+                            $("#Fanamarihana-" + id).remove();
+                        }
+                    });
+                }
+            </script>
+</body>
+
+</html>

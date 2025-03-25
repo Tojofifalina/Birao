@@ -1,0 +1,589 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="{% static 'toggable/foundation.css'%}">
+  <link rel="stylesheet" href="{% static 'dist2/css/bootstrap.min.css' %}">
+  <script src="{% static 'ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js' %}"></script>
+  <script src="{% static 'dist2/js/bootstrap.min.js' %}"></script>
+
+  <script src="{% static 'js/code.js' %}" defer=""></script>
+  <script src="{% static '/assets/js/vendor/jquery-slim.min.js'%}"></script>
+  <!---->
+
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/ico.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/folio.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/w3.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styls.css' %}">
+
+  <script src="{% static 'js/dom_js.js' %}" defer></script>
+  <!---->
+
+  <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+  <script src="{% static 'dist2/js/bootstrap.bundle.min.js' %}"></script>
+  <link href="{% static 'dist/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+
+  <style>
+    .scroll {
+
+      z-index: 1;
+      overflow: auto;
+      content: "";
+      clear: both;
+      /*margin-bottom: 20px;*/
+      transition: 0.5s;
+      scroll-behavior: smooth;
+
+    }
+
+    .scroll {
+      left: 0;
+      overflow-x: scroll;
+      overflow-y: scroll;
+      transition: 0.5s;
+
+    }
+
+
+    .scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scroll {
+      -ms-overflow-style: none;
+      overflow: -moz-scrollbars-none;
+    }
+
+    .scroll::-webkit-scrollbar {
+      width: 0 !important
+    }
+
+    */ .scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scroll {
+      -ms-overflow-style: none;
+      overflow: -moz-scrollbars-none;
+    }
+  </style>
+
+  <!--<link rel="stylesheet" href="dist/css/bootstrap.min.css">-->
+
+  <!--<script src="dist/js/bootstrap.min.js"></script>-->
+  <link href="{% static 'mdeditor/css/editormd.min.css' %}" rel="stylesheet">
+  <link href="{% static 'mdeditor/css/editormd.preview.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'responsiv-rectif.css' %}">
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {
+      height: 450px
+    }
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+
+      .row.content {
+        height: auto;
+      }
+    }
+  </style>
+  <style>
+    .main_pe {
+      grid-column: 3;
+      /*background: #fff;*/
+      background: linear-gradient(45deg, #616161, hsl(0deg 0% 0%)) center center no-repeat;
+      border-radius: 6px;
+
+      top: 50%;
+      left: 50%;
+      transform: translate(-0%, -40%) scale(0);
+      text-align: center;
+      padding: 0 30px 30px;
+      color: #333;
+
+      transition: transform 0.9s, top 0.9s;
+
+    }
+
+
+    html,
+    body {
+      height: 100%;
+      /*background-color: #333;*/
+      /*background-color: #000000;*/
+
+    }
+
+    /*.editormd-preview-container pre,
+        .editormd-html-preview pre {
+            background: #3a4b43;
+            
+        }*/
+  </style>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      /*margin: 20px;*/
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    input,
+    button {
+      margin-right: 15px;
+      padding: 5px;
+      font-size: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid #ddd;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f4f4f4;
+    }
+
+    .json-container {
+      margin-top: 30px;
+      padding: 10px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      font-family: monospace;
+    }
+  </style>
+
+  <script src="{% static 'toggable/jquery.min.js'%}"></script>
+  <script src="{% static 'toggable/foundation.min.js'%}"></script>
+</head>
+
+<body class="text d-flex flex-column h-100">
+  <div class="container-fluid main  scroll h-100" main>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">FJKM ADRAISORA</a>
+
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="{% url 'Fanamarinana:anidy' %}">Anidy</a>
+        </li>
+      </ul>
+    </nav>
+
+
+    <style>
+      /* Styles pour l'offcanvas */
+      .offcanvas {
+        position: fixed;
+        top: 55PX;
+        left: -300px;
+        /* Hors de l'écran */
+        width: 300px;
+        height: 100%;
+        background-color: #f8f9fa;
+        transition: all 0.3s ease-in-out;
+        z-index: 1045;
+      }
+
+      .offcanvas.show {
+        left: 0;
+        /* Glisse sur l'écran */
+      }
+    </style>
+    <!-- Offcanvas -->
+    <div class="offcanvas" id="myOffcanvas">
+      <div class="p-15">
+        <button class="btn btn-secondary mb-3" id="offcanvasClose">Fermer</button>
+        <h5>Contenu Offcanvas</h5>
+        <p>Texte ou menu ici.</p>
+        {% block menu %}
+
+        {% endblock %}
+      </div>
+    </div>
+
+
+    <script>
+      // JavaScript pour activer/désactiver l'offcanvas
+      document.getElementById('offcanvasToggle').addEventListener('click', function () {
+        document.getElementById('myOffcanvas').classList.add('show');
+      });
+
+      document.getElementById('offcanvasClose').addEventListener('click', function () {
+        document.getElementById('myOffcanvas').classList.remove('show');
+      });
+    </script>
+    <main>
+      <div class="containeur-fluid  d-flex flex-column h-100">
+        <div class="container-fluid">
+          <div class="row">
+
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+              <div class="sidebar-sticky ">
+                <ul class="nav flex-column">
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Fitatanana:Pejy1'%}">
+                      <span data-feather="file"></span>
+                      Hivoka
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Tableau:Tableau' %}Adidy">
+                      <span data-feather="file"></span>
+                      Adidy
+                    </a>
+                  </li>
+
+
+                </ul>
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                  <span>Vola miditra sy mivoka</span>
+
+                </h6>
+                <ul class="nav flex-column mb-2">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Vola:Vola_Niditra' %}">
+                      Ampiditra Vola
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Vola:Vola_Nivoka' %}">
+                      Amoka Vola
+                    </a>
+                  </li>
+
+
+                </ul>
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                  <span>Tobana</span>
+
+                </h6>
+                <ul class="nav flex-column mb-2">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Tableau:Tableau' %}stat/">
+                      Tobana Mahakasika irea Mpino
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Tableau:Tableau' %}">
+                      Tobana Mahakasika ireo adidy
+                    </a>
+                  </li>
+
+
+                </ul>
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                  <span>Amoka ho Exel</span>
+
+                </h6>
+                <ul class="nav flex-column mb-2">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Tableau:Tableau' %}export_Mpino_Exel/">
+                      Amoka ho Exel ireo Mpino
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Tableau:Tableau' %}export_Adidy_Exel/">
+                      Amoka ho Exel ireo Adidy
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Tableau:Tableau' %}export_Adidy_Exel/">
+                      Amoka ho Exel ireo Adidy
+                    </a>
+                  </li>
+
+                  <h6
+                    class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Ampiditra amin'ny Exel</span>
+
+                  </h6>
+                  <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'Tableau:Tableau' %}import_Mpino_Exel/">
+                        Ampiditra Mpino
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'Tableau:Tableau' %}import_Adidy_Exel/">
+                        Ampiditra Adidy
+                      </a>
+                    </li>
+
+                  </ul>
+              </div>
+            </nav>
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+              <div
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+
+                <h1 class="h2">Fitatanana</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                  <div class="btn-group mr-2">
+
+
+                  </div>
+
+                </div>
+
+              </div>
+              <h1>Tobana Arabola </h1>
+
+              <!-- Formulaire de filtrage -->
+              <form method="get" action="{% url 'Tableau:Tobana_Arabola' %}">
+                <label for="annee">Taona :</label>
+                <input type="number" id="annee" name="annee" placeholder="Ex: 2024" value="{{ annee }}">
+                <!---
+                <label for="debut">Début :</label>
+                <input type="date" id="debut" name="debut" value="{{ debut }}">
+
+                <label for="fin">Fin :</label>
+                <input type="date" id="fin" name="fin" value="{{ fin }}">
+                -->
+                <label for="comparaison_annee">Fampitahana:</label>
+                <input type="number" id="comparaison_annee" name="comparaison_annee" placeholder="Ex: 2023"
+                  value="{{ comparaison_annee }}">
+
+                <button type="submit">Sivana</button>
+
+
+                <!-- Affichage des statistiques -->
+                <h2>Tobana Isantaona </h2>
+                <form action="" method="get">
+                  <ul class="tabs" data-tab>
+
+                    <li class="tab-title active"><a href="#home">Adidy</a></li>
+                    <li class="tab-title"><a href="#menu1">Vola Hafa</a></li>
+
+                  </ul>
+                  <div class="tabs-content">
+                    <div class="content active" id="home">
+                      <h3>Adidy</h3>
+                      <table>
+                        <tr>
+                          <th>Avidy</th>
+                          <th>Fitabarany</th>
+                        </tr>
+                        <tr>
+                          <td>Fitabaran'ireo adidy ny taona {{statistiques.taona}}</td>
+                          <td>{{ statistiques.periode_selectionnee.somme_cotisations }}</td>
+                        </tr>
+
+                        <tr>
+                          <td>Isanireo olona nahavita 12 volana</td>
+                          <td>{{ statistiques.periode_selectionnee.personnes_tout_paye }}</td>
+                        </tr>
+
+                      </table>
+
+                      <h2>Fampitahana tamin'ny taona :{{ comparaison_annee }}</h2>
+                      <table>
+                        <tr>
+                          <th>Adidy</th>
+                          <th>Fitabarany</th>
+                        </tr>
+                        <tr>
+                          <td>Fitabaran'ireo adidy ny taona {{ comparaison_annee }}</td>
+                          <td>{{ statistiques.comparaison.somme_cotisations }}</td>
+                        </tr>
+
+                        <tr>
+                          <td>Isanireo olona nahavita 12 volana</td>
+                          <td>{{ statistiques.comparaison.personnes_tout_paye }}</td>
+                        </tr>
+
+                      </table>
+                    </div>
+
+                    <div class="content" id="menu1">
+                      <h3>Vola hafa</h3>
+                      <!-- Totaux -->
+                      <div>
+                        <h2>Fitabarany</h2>
+                        <table>
+                          <tr>
+                            <th>Taona</th>
+                            <th>Adidy</th>
+                            <th>Vola Niditra</th>
+                            <th>Vola Nivoka</th>
+                          </tr>
+
+                          <tr>
+                            <td>{{statistiques.taona}}</td>
+                            <td>{{ statistiques.periode_selectionnee.somme_cotisations }}</td>
+                            <td>{{ data.totaux.somme_resetes }}</td>
+                            <td>{{ data.totaux.somme_depenses }}</td>
+                          </tr>
+                          <tr>
+                            <td>Fitabarany</td>
+                            <td colspan="3" class="text-center">
+                              {{data.Somme}}
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+
+                      <!-- Liste des resetes -->
+                      <div>
+
+                        <h2>Vola Niditra </h2><a class="nav-link"
+                          href="{% url 'Tableau:Tableau' %}export_Vola_Niditra_Exel/{{statistiques.taona}}">
+                          Amoka ho Exel </a>
+                        <table class="table table-striped scroll">
+                          <thead>
+                            <tr>
+                              <th>Taona</th>
+                              <th>Daty</th>
+                              <th>Antony</th>
+                              <th>Vola</th>
+                              <th>Fanamarihana</th>
+
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for resete in data.resetes %}
+                            <tr>
+                              <td>{{ resete.Taona }}</td>
+                              <td>{{ resete.Daty }}</td>
+                              <td>{{ resete.Antony }}</td>
+                              <td>{{ resete.Vola }}</td>
+                              <td>{{ resete.Fanamarihana }}</td>
+
+                            </tr>
+
+                            {% empty %}
+                            <tr>
+                              <td colspan="5" class="text-center">Tsy mbola misy</td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+
+                      </div>
+
+
+                      <!-- Liste des dépenses -->
+                      <div>
+                        <h2>Vola Nivoka</h2>
+                       <a class="nav-link" href="{% url 'Tableau:Tableau' %}export_Vola_Nivoka_Exel/{{statistiques.taona}}">
+                          Amoka ho Exel </a>
+                        <table class="table table-striped scroll">
+                          <thead>
+                            <tr>
+                              <th>Taona</th>
+                              <th>Daty</th>
+                              <th>Antony</th>
+                              <th>Vola</th>
+                              <th>Fanamarihana</th>
+
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for depense in data.depenses %}
+                            <tr>
+                              <td>{{ depense.Taona }}</td>
+                              <td>{{ depense.Daty }}</td>
+                              <td>{{ depense.Antony }}</td>
+                              <td>{{ depense.Vola }}</td>
+                              <td>{{ depense.Fanamarihana }}</td>
+
+                            </tr>
+
+                            {% empty %}
+                            <tr>
+                              <td colspan="5" class="text-center">Tsy mbola misy</td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+
+
+
+
+                      </div>
+                    </div>
+
+                  </div>
+
+          </div>
+
+
+
+
+
+
+
+
+
+          <!-- Initialize Foundation JS -->
+          <script>
+            $(document).ready(function () {
+              $(document).foundation();
+            })
+          </script>
+        </div>
+      </div>
+    </main>

@@ -1,0 +1,53 @@
+
+{% extends "admin/base_site.html" %}
+{% load static %}
+<script src="{% static 'js/editor_custom.js' %}"></script>
+
+{% block extrahead %}
+    {{ block.super }}
+    <link href="{% static 'dist2/css/bootstrap.min.css'%}" rel="stylesheet">
+   <style>
+    body {
+        margin: 0 !important;
+        padding: 0 inherit;
+        font-size: 0.875rem !important;
+        font-family: var(--font-family-primary) !important;
+        color: var(--body-fg) !important;
+        background: var(--body-bg) !important;
+    }
+    ima{
+        width: 30% !important;
+        height: 30% !important;
+    }
+    .container{
+        width: 500px !important;
+        height: 200px !important;
+        
+    }
+    
+    .scroll {
+
+z-index: 1;
+overflow: auto;
+content: "";
+clear: both;
+/*margin-bottom: 20px;*/
+transition: 0.5s;
+scroll-behavior: smooth;
+
+}
+
+.scroll {
+left: 0;
+overflow-x: scroll;
+overflow-y: scroll;
+transition: 0.5s;
+
+}
+    </style>
+{% endblock %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <script src="{% static 'dist/js/bootstrap.bundle.min.js'%}"></script>
+{% endblock %}

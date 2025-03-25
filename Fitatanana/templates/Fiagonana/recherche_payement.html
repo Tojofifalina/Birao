@@ -1,0 +1,200 @@
+{% extends "base2.html" %}
+{% load static %}
+{% block title %} Folio {% endblock %}
+{% block static %}
+<link rel="stylesheet" href="{% static 'responsiv-rectif.css' %}">
+<link rel="stylesheet" href="{% static 'album.css' %}">
+<link href="{% static 'stylesheet' %}" rel="stylesheet">
+<link href="{% static 'dist3/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'cover.css' %}" rel="stylesheet">
+<link href="{% static 'sticky-footer-navbar.css'%}" rel="stylesheet">
+<script src="{% static 'js/code.js' %}" defer=""></script>
+<script src="{% static 'dist/js/bootstrap.min.js' %}" defer=""></script>
+{% endblock %}
+{% block content %}
+<div class=" d-flex h-100 p-3 mx-auto flex-column">
+    <a onclick="Anim()" href="{% url 'Fitatanana:Pejy1'%}" type="button" class="btn-close" data-bs-dismiss="modal"
+        aria-label="Close"></a>
+    <main role="main" class="  text-center ">
+        <div class="container-fluid text-center">
+            <div class="row content">
+                <section class="jumbotron text-center">
+
+                    <div class="container">
+                        <h1 class="jumbotron-heading">Hikaroka</h1>
+                        <p class="lead text-muted">Anarana + Taona + Daty </p>
+                        <form class="form-control p-2 m-2" method="get">
+                            <label class="p-2" for="nom">Anarana / Karatra :</label>
+                            <input type="text" name="nom" id="nom" required>
+
+                            <label class="p-2" for="annee">Taona :</label>
+                            <input type="number" name="annee" id="annee" required>
+
+                            <label class="p-2" for="date">Daty nadoavana :</label>
+                            <input type="date" name="date" id="date" required>
+                            <button type="submit" class="btn btn-secondary form-control p-10">Hikaroka</button>
+                        </form>
+
+                    </div>
+                </section>
+
+                <form method="get" action="">
+
+                </form>
+
+                <main>
+                    {% if message %}
+                    <div class="alert alert-info" role="alert">{{ message }}</div>
+                     {%endif%}
+                    <div class="row mb-2">
+                        <div class="col-md-6">
+                            <div class="card flex-md-row box-shadow h-100">
+                                <div class="card-body">
+                                    <div class="container">
+                                        {% if resultats %}
+                                        <h2>Kristianina</h2>
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Anarana</th>
+                                                    <th>Karatra</th>
+                                                    <th>Taona</th>
+                                                    <th>Volana</th>
+                                                    <th>Adidy</th>
+                                                    <th>Daty</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for resultat in resultats %}
+                                                <tr>
+                                                    <td>{{ resultat.Anarana }}</td>
+                                                    <td>{{resultat.Laharana_Karatra}}</td>
+                                                    <td>{{ resultat.Taona }}</td>
+                                                    <td>{{ resultat.Volana }}</td>
+                                                    <td>{{ resultat.Adidy }}</td>
+                                                    <td>{{ resultat.Daty }}</td>
+                                                </tr>
+                                                {% endfor %}
+
+                                            </tbody>
+
+
+                                        </table>
+                                        {% endif %}
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card flex-md-row  box-shadow h-100 ">
+                                <div class="card-body">
+                                    <div class="container">
+                                       
+
+
+
+                                        {% if resultats_P %}
+                                        {%if Mpino == "P"%}
+                                        <h2>Mpandray</h2>
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Anarana</th>
+                                                    <th>Karatra</th>
+                                                    <th>Taona</th>
+                                                    <th>Volana</th>
+                                                    <th>Adidy</th>
+                                                    <th>Daty</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                                        
+                                                {% for resultat_P in resultats_P %}
+                                                
+                                                <tr>
+                                                    <td>{{ resultat_P.Anarana }}</td>
+                                                    <td>{{resultat_P.Laharana_Karatra}}</td>
+                                                    <td>{{ resultat_P.Taona }}</td>
+                                                    <td>{{ resultat_P.Volana }}</td>
+                                                    <td>{{ resultat_P.Adidy }}</td>
+                                                    <td>{{ resultat_P.Daty }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                                
+
+                                            </tbody>
+
+
+                                        </table>
+                                        {% else %}
+                                            <div class="alert alert-info" role="alert" >Tsy Mpandray</div>
+                                            {%endif%}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </main>
+    </main>
+    <script src="{% static 'java.js' %}"></script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <script>window.jQuery || document.write(`<script src="{% static 'assets/js/vendor/jquery-slim.min.js'%}"><\/script>`)</script>
+    <script src="{% static 'assets/js/vendor/popper.min.js'%}"></script>
+    <script src="{% static 'dist3/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'assets/js/vendor/jquery-slim.min.js'%}"></script>
+    <script src="{% static 'assets/js/vendor/js/vendor/popper.min.js'%}"></script>
+
+    <script>
+        // <![CDATA[  <-- For SVG support
+        if ('WebSocket' in window) {
+            (function () {
+                function refreshCSS() {
+                    var sheets = [].slice.call(document.getElementsByTagName("link"));
+                    var head = document.getElementsByTagName("head")[0];
+                    for (var i = 0; i < sheets.length; ++i) {
+                        var elem = sheets[i];
+                        var parent = elem.parentElement || head;
+                        parent.removeChild(elem);
+                        var rel = elem.rel;
+                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                        }
+                        parent.appendChild(elem);
+                    }
+                }
+                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                var address = protocol + window.location.host + window.location.pathname + '/ws';
+                var socket = new WebSocket(address);
+                socket.onmessage = function (msg) {
+                    if (msg.data == 'reload') window.location.reload();
+                    else if (msg.data == 'refreshcss') refreshCSS();
+                };
+                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                    console.log('Live reload enabled.');
+                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                }
+            })();
+        }
+        else {
+            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+        }
+        // ]]>
+    </script>
+    </body>
+
+
+
+    {% endblock %}
+    </body>

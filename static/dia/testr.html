@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="barCanvas" aria-label="chart" role="img">
+		
+	</canvas>
+	<script src="chart.min.js"></script>
+	<script>
+		const barCanvas = document.getElementById("barCanvas");
+		const barChart = new Chart(barCanvas,{
+			type:"bar",
+			data:{
+				labels:["aa","ddd","jjj"],
+				datasets:[{
+					data:[10,265,33]
+				}]
+			}
+		})
+	</script>
+</body>
+</html>

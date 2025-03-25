@@ -1,0 +1,280 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Tahiry sy Fikaroana Adidy</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'dist3/css/bootstrap.min.css'%}" rel="stylesheet">
+
+</head>
+<body>
+    <main role="main" class="container-fluid mt-3" style="padding-bottom: 40px;">
+    <div class="container-fluid " style="padding-bottom: 40px;">
+
+
+    <div class="modal-header bg-m">
+        <h5 class="modal-title" id="Adidy">Tahiry</h5>
+        <a href="{% url 'Fitatanana:Pejy1'%}Ikaroka/h740" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" >X</a>
+        </div>
+    </div>
+
+    
+    {%if ita %}
+
+    {% for i in ita %}
+    <table class="table table-striped text-center">
+        <form method="get" action="">
+            <tbody class="text-center ">
+                <tr>
+                    <td>Laharan'ny Karatra</td>
+                    <td> {{i.LaharanaKaratra}}</td>
+                </tr>
+                <tr>
+                    <td>Anarana</td>
+                    <td> {{i.Anarana}}</td>
+                </tr>
+                <tr>
+                    <td>Fanampiny</td>
+                    <td> {{i.Fanampiny}}</td>
+                </tr>
+                <tr>
+                    <td>Taona</td>
+                    <td> {{i.Taona}}</td>
+                </tr>
+                <tr>
+                    <td>Taona</td>
+                    <td>
+                        <div class="col-7 mb-3 form-control w-100">
+                            <input type="number" class="form-control" id="hikarokaTaona" name="q" placeholder="hikaroka"
+                               >
+                        </div>
+                    </td>
+
+
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <button type="submit" class="btn btn-success w-100">hikaroka</button>
+                    </th>
+                </tr>
+
+
+
+            </tbody>
+            
+        </form>
+        
+    </table>
+    {%endfor%}
+
+
+
+    {%else%}
+    <p>Tsy ita !!</p>
+    {%endif%}
+
+    {%if ita2 %}
+    {% for i2 in ita2 %}
+    
+    <table class="table table-striped text-center">
+
+        <tbody class="text-center ">
+            <tr>
+                <td>Vola : </td>
+                <td>{{i2.Fitabarany}}</td>
+            </tr>
+        </tbody>
+
+        <table class="table table-striped text-center  bg-dark text-white">
+
+            <thead class="text-center">
+
+
+                
+                <tr>
+                    
+                    <th colspan="4" class="text-center bg-primary">
+                       
+                       <div class="modal-header  text-center" style="padding: 0px; margin: 0px;">
+                        {{i2.Taona}}<a href="{% url 'Fitatanana:Pejy1'%}Ikaroka/h740" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ><p><a class="text-white" href=" {% url 'Fitatanana:Pejy1'%}AnovaAdidy/{{request.GET.q}}/{{i2.Mpino.id}}"> <img src="{% static 'admin/img/icon-changelink.svg' %}"class="w-120" style="width: 25px;height: 25px;"  alt="Anova"></a></p></a>
+                        
+                    </div>
+                    </div>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>volana</th>
+                    <th>Kristianina</th>
+                    <th>Mpandray</th>
+                    <th>Daty</th>
+                </tr>
+
+            </thead>
+            <tbody class="text-center ">
+
+
+                <tr>
+                    <th>J</th>
+                    <th>{{ i2.J }}</th>
+                    <th>{{ i2.P_J }}</th>
+                    <th>{{ i2.J_Date }}</th>
+                </tr>
+                <tr>
+                    <th>F</th>
+                    <th>{{ i2.F }}</th>
+                    <th>{{ i2.P_F}}</th>
+                    <th>{{ i2.F_Date}}</th>
+                </tr>
+                <tr>
+                    <th>M</th>
+                    <th>{{ i2.M }}</th>
+                    <th>{{ i2.P_M }}</th>
+                    <th>{{ i2.M_Date }}</th>
+                </tr>
+                <tr>
+                    <th>A</th>
+                    <th>{{ i2.Av }}</th>
+                    <th>{{ i2.P_Av }}</th>
+                    <th>{{ i2.Av_Date }}</th>
+                </tr>
+                <tr>
+                    <th>Ma</th>
+                    <th>{{ i2.Ma }}</th>
+                    <th>{{ i2.P_Ma }}</th>
+                    <th>{{ i2.Ma_Date }}</th>
+                </tr>
+                <tr>
+                    <th>Ji</th>
+                    <th>{{ i2.Ji }}</th>
+                    <th>{{ i2.P_Ji }}</th>
+                    <th>{{ i2.Ji_Date }}</th>
+                </tr>
+                <tr>
+                    <th>Ju</th>
+                    <th>{{ i2.Ju }}</th>
+                    <th>{{ i2.P_Ju }}</th>
+                    <th>{{ i2.Ju_Date }}</th>
+                </tr>
+                <tr>
+                    <th>Ag</th>
+                    <th>{{ i2.Ag }}</th>
+                    <th>{{ i2.P_Ag }}</th>
+                    <th>{{ i2.Ag_Date }}</th>
+                </tr>
+                <tr>
+                    <th>S</th>
+                    <th>{{ i2.S}}</th>
+                    <th>{{ i2.P_S }}</th>
+                    <th>{{ i2.S_Date }}</th>
+                </tr>
+                <tr>
+                    <th>Ak</th>
+                    <th>{{ i2.Ak }}</th>
+                    <th>{{ i2.P_Ak }}</th>
+                    <th>{{ i2.Ac_Date }}</th>
+                </tr>
+                <tr>
+                    <th>N</th>
+                    <th>{{ i2.N }}</th>
+                    <th>{{ i2.P_N }}</th>
+                    <th>{{ i2.N_Date}}</th>
+                </tr>
+                <tr>
+                    <th>Dc</th>
+                    <th>{{ i2.D }}</th>
+                    <th>{{ i2.P_D }}</th>
+                    <th>{{ i2.D_Date }}</th>
+                </tr>
+            </tbody>
+        </table>
+
+        {%endfor%}
+        {%else%}
+        <tr class="text-center bg-info">
+            <td colspan="3" class="text-center">Tsy mbola misy</td>
+        </tr>
+        {%endif%}
+    </table>
+    
+
+</main>
+
+</body>
+<nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">FJKM ANDRAISORA</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item dropup">
+               <div class="dropdown-menu" aria-labelledby="dropdown10">
+                
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slii.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script>window.jQuery || document.write(`<script src="{% static 'assets/js/vendor/jquery-slii.min.js'%}"><\/script>`)</script>
+<script src="{% static 'assets/js/vendor/popper.min.js'%}"></script>
+<script src="{% static 'dist3/js/bootstrap.min.js'%}"></script>
+<script src="{% static 'jquery.min.js'%}"></script>
+<script>
+    // <![CDATA[  <-- For SVG support
+    if ('WebSocket' in window) {
+        (function () {
+            function refreshCSS() {
+                var sheets = [].slice.call(document.getElementsByTagName("link"));
+                var head = document.getElementsByTagName("head")[0];
+                for (var i = 0; i < sheets.length; ++i) {
+                    var elem = sheets[i];
+                    var parent = elei.parentElement || head;
+                    parent.removeChild(elem);
+                    var rel = elei.rel;
+                    if (elei.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                        var url = elei.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                        elei.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                    }
+                    parent.appendChild(elem);
+                }
+            }
+            var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+            var address = protocol + window.location.host + window.location.pathname + '/ws';
+            var socket = new WebSocket(address);
+            socket.onmessage = function (msg) {
+                if (msg.data == 'reload') window.location.reload();
+                else if (msg.data == 'refreshcss') refreshCSS();
+            };
+            if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                console.log('Live reload enabled.');
+                sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+            }
+        })();
+    }
+    else {
+        console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+        // ]]>
+</script>
+</body>
+
+</html>

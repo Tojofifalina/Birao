@@ -1,0 +1,293 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="{% static 'dist2/css/bootstrap.min.css' %}">
+    <script src="{% static 'ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js' %}"></script>
+    <script src="{% static 'dist2/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'js/code.js' %}" defer=""></script>
+    <script src="{% static '/assets/js/vendor/jquery-slim.min.js'%}"></script>
+    <!---->
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ico.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/folio.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/w3.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styls.css' %}">
+
+    <script src="{% static 'js/dom_js.js' %}" defer></script>
+    <!---->
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="{% static 'dist2/js/bootstrap.bundle.min.js' %}"></script>
+        <link href="{% static 'dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <style>
+        
+
+        .scroll {
+
+            z-index: 1;
+            overflow: auto;
+            content: "";
+            clear: both;
+            /*margin-bottom: 20px;*/
+            transition: 0.5s;
+            scroll-behavior: smooth;
+
+        }
+
+        .scroll {
+            left: 0;
+            overflow-x: scroll;
+            overflow-y: scroll;
+            transition: 0.5s;
+
+        }
+
+
+        .scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scroll {
+            -ms-overflow-style: none;
+            overflow: -moz-scrollbars-none;
+        }
+
+        .scroll::-webkit-scrollbar {
+            width: 0 !important
+        }
+
+        */ .scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scroll {
+            -ms-overflow-style: none;
+            overflow: -moz-scrollbars-none;
+        }
+    </style>
+
+    <!--<link rel="stylesheet" href="dist/css/bootstrap.min.css">-->
+
+    <!--<script src="dist/js/bootstrap.min.js"></script>-->
+    <link href="{% static 'mdeditor/css/editormd.min.css' %}" rel="stylesheet">
+    <link href="{% static 'mdeditor/css/editormd.preview.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'responsiv-rectif.css' %}">
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {
+            height: 450px
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
+    <style>
+        
+
+        .main_pe {
+            grid-column: 3;
+            /*background: #fff;*/
+            background: linear-gradient(45deg, #616161, hsl(0deg 0% 0%)) center center no-repeat;
+            border-radius: 6px;
+
+            top: 50%;
+            left: 50%;
+            transform: translate(-0%, -40%) scale(0);
+            text-align: center;
+            padding: 0 30px 30px;
+            color: #333;
+
+            transition: transform 0.9s, top 0.9s;
+
+        }
+
+        .markdown-body {
+            background-color: #333;
+        }
+
+        h1 {
+            color: white;
+            border-bottom: 0;
+
+        }
+        html,
+        body {
+            height: 100%;
+            /*background-color: #333;*/
+            background-color: #000000;
+            color: white !important;
+        }
+        /*.editormd-preview-container pre,
+        .editormd-html-preview pre {
+            background: #3a4b43;
+            
+        }*/
+        .blog-post,h3,p{
+            color: white !important;
+        }
+        .container,.container{
+            margin: 0 !important;
+            max-width: max-content !important;
+            
+        }
+        .card {
+            /*background-color: #605f5f !important;*/
+            color:black !important;
+        }
+        .editormd-preview-container blockquote, .editormd-html-preview blockquote {
+            color: wheat !important;
+        }
+        .markdown-body{
+            padding-top: 4px !important;
+        }
+    </style>
+
+</head>
+
+<body class="bg-dark text-light d-flex flex-column h-100">
+    <div class="container-fluid main  scroll" main>
+        
+        <style>
+            /* Styles pour l'offcanvas */
+            .offcanvas {
+                position: fixed;
+                top: 55PX;
+                left: -300px;
+                /* Hors de l'écran */
+                width: 300px;
+                height: 100%;
+                background-color: #f8f9fa;
+                transition: all 0.3s ease-in-out;
+                z-index: 1045;
+            }
+
+            .offcanvas.show {
+                left: 0;
+                /* Glisse sur l'écran */
+            }
+        </style>
+        <!-- Offcanvas -->
+        <div class="offcanvas" id="myOffcanvas">
+            <div class="p-15">
+                <button class="btn btn-secondary mb-3" id="offcanvasClose">Fermer</button>
+                <h5>Contenu Offcanvas</h5>
+                <p>Texte ou menu ici.</p>
+                {% block menu %}
+
+                {% endblock %}
+            </div>
+        </div>
+
+        
+        <script>
+            // JavaScript pour activer/désactiver l'offcanvas
+            document.getElementById('offcanvasToggle').addEventListener('click', function () {
+                document.getElementById('myOffcanvas').classList.add('show');
+            });
+
+            document.getElementById('offcanvasClose').addEventListener('click', function () {
+                document.getElementById('myOffcanvas').classList.remove('show');
+            });
+        </script>
+
+        {% block content %}
+        {% endblock %}
+        
+    </div>
+
+    <footer class="footer bg-dark text-center">
+        <div class="container text-center">
+         <p class="text-center">CDF</p>
+        </div>
+    </footer>
+
+<!-- Bootstrap core JavaScript
+   ================================================== -->
+   <!-- Placed at the end of the document so the pages load faster -->
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script>window.jQuery || document.write(`<script src="{% static 'assets/js/vendor/jquery-slim.min.js'%}"><\/script>`)</script>
+   <script src="{% static 'assets/js/vendor/popper.min.js'%}"></script>
+   <script src="{% static 'dist3/js/bootstrap.min.js'%}"></script>
+   <script src="{% static 'assets/js/vendor/jquery-slim.min.js'%}"></script>
+   <script>
+       // <![CDATA[  <-- For SVG support
+       if ('WebSocket' in window) {
+           (function () {
+               function refreshCSS() {
+                   var sheets = [].slice.call(document.getElementsByTagName("link"));
+                   var head = document.getElementsByTagName("head")[0];
+                   for (var i = 0; i < sheets.length; ++i) {
+                       var elem = sheets[i];
+                       var parent = elem.parentElement || head;
+                       parent.removeChild(elem);
+                       var rel = elem.rel;
+                       if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                           var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                           elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                       }
+                       parent.appendChild(elem);
+                   }
+               }
+               var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+               var address = protocol + window.location.host + window.location.pathname + '/ws';
+               var socket = new WebSocket(address);
+               socket.onmessage = function (msg) {
+                   if (msg.data == 'reload') window.location.reload();
+                   else if (msg.data == 'refreshcss') refreshCSS();
+               };
+               if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                   console.log('Live reload enabled.');
+                   sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+               }
+           })();
+       }
+       else {
+           console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+       }
+       // ]]>
+   </script>
+</body>
+
+</html>

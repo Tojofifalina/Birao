@@ -1,0 +1,654 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link rel="stylesheet" href="{% static 'dist2/css/bootstrap.min.css' %}">
+  <script src="{% static 'ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js' %}"></script>
+  <script src="{% static 'dist2/js/bootstrap.min.js' %}"></script>
+
+  <script src="{% static '/assets/js/vendor/jquery-slim.min.js'%}"></script>
+  <!---->
+
+
+  
+  <script src="{% static 'js/dom_js.js' %}" defer></script>
+  <!---->
+
+  <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+  <script src="{% static 'dist2/js/bootstrap.bundle.min.js' %}"></script>
+  <link href="{% static 'dist/css/bootstrap.min.css' %}" rel="stylesheet">
+  
+  
+  
+  <style>
+    .scroll {
+
+      z-index: 1;
+      overflow: auto;
+      content: "";
+      clear: both;
+      /*margin-bottom: 20px;*/
+      transition: 0.5s;
+      scroll-behavior: smooth;
+
+    }
+
+    .scroll {
+      left: 0;
+      overflow-x: scroll;
+      overflow-y: scroll;
+      transition: 0.5s;
+
+    }
+
+
+    .scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scroll {
+      -ms-overflow-style: none;
+      overflow: -moz-scrollbars-none;
+    }
+
+    .scroll::-webkit-scrollbar {
+      width: 0 !important
+    }
+
+    */ .scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scroll {
+      -ms-overflow-style: none;
+      overflow: -moz-scrollbars-none;
+    }
+  </style>
+
+  <!--<link rel="stylesheet" href="dist/css/bootstrap.min.css">-->
+
+  <!--<script src="dist/js/bootstrap.min.js"></script>-->
+  <link href="{% static 'mdeditor/css/editormd.min.css' %}" rel="stylesheet">
+  <link href="{% static 'mdeditor/css/editormd.preview.css' %}" rel="stylesheet">
+ <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {
+      height: 450px
+    }
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+
+      .row.content {
+        height: auto;
+      }
+    }
+  </style>
+  <style>
+    .main_pe {
+      grid-column: 3;
+      /*background: #fff;*/
+      background: linear-gradient(45deg, #616161, hsl(0deg 0% 0%)) center center no-repeat;
+      border-radius: 6px;
+
+      top: 50%;
+      left: 50%;
+      transform: translate(-0%, -40%) scale(0);
+      text-align: center;
+      padding: 0 30px 30px;
+      color: #333;
+
+      transition: transform 0.9s, top 0.9s;
+
+    }
+
+
+    html,
+    body {
+      height: 100%;
+      /*background-color: #333;*/
+      /*background-color: #000000;*/
+
+    }
+
+    /*.editormd-preview-container pre,
+        .editormd-html-preview pre {
+            background: #3a4b43;
+            
+        }*/
+  </style>
+
+</head>
+
+<body class="text d-flex flex-column h-100">
+  <div class="container-fluid main  scroll h-100" main>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">FJKM ADRAISORA</a>
+      <form method="get" class="w-100"><input class="form-control form-control-dark w-100" type="text" placeholder="Ikaroka" id="q" name="q" aria-label="Search"></form>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="{% url 'Fanamarinana:anidy' %}">Anidy</a>
+        </li>
+      </ul>
+    </nav>
+
+
+    <style>
+      /* Styles pour l'offcanvas */
+      .offcanvas {
+        position: fixed;
+        top: 55PX;
+        left: -300px;
+        /* Hors de l'écran */
+        width: 300px;
+        height: 100%;
+        background-color: #f8f9fa;
+        transition: all 0.3s ease-in-out;
+        z-index: 1045;
+      }
+
+      .offcanvas.show {
+        left: 0;
+        /* Glisse sur l'écran */
+      }
+    </style>
+    <!-- Offcanvas -->
+    <div class="offcanvas" id="myOffcanvas">
+      <div class="p-15">
+        <button class="btn btn-secondary mb-3" id="offcanvasClose">Fermer</button>
+        <h5>Contenu Offcanvas</h5>
+        <p>Texte ou menu ici.</p>
+        {% block menu %}
+
+        {% endblock %}
+      </div>
+    </div>
+
+
+    <script>
+      // JavaScript pour activer/désactiver l'offcanvas
+      document.getElementById('offcanvasToggle').addEventListener('click', function () {
+        document.getElementById('myOffcanvas').classList.add('show');
+      });
+
+      document.getElementById('offcanvasClose').addEventListener('click', function () {
+        document.getElementById('myOffcanvas').classList.remove('show');
+      });
+    </script>
+
+    <div class="containeur-fluid  d-flex flex-column h-100">
+      <div class="container-fluid">
+        <div class="row">
+
+          <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky ">
+              <ul class="nav flex-column">
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'Fitatanana:Pejy1'%}">
+                    <span data-feather="file"></span>
+                    Hivoka
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'Tableau:Tableau' %}">
+                    <span data-feather="file"></span>
+                    Mpino
+                  </a>
+                </li>
+                
+                
+              </ul>
+              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Vola miditra sy mivoka</span>
+                
+              </h6>
+              <ul class="nav flex-column mb-2">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'Vola:Vola_Niditra' %}">
+                    Ampiditra Vola
+                  </a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'Vola:Vola_Nivoka' %}">
+                    Amoka Vola
+                  </a>
+                </li>
+                
+                
+              </ul>
+
+              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Tobana</span>
+                
+              </h6>
+              <ul class="nav flex-column mb-2">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'Tableau:Tableau' %}stat/">
+                    Tobana Mahakasika irea Mpino
+                  </a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'Tableau:Tableau' %}Tobana_Arabola/">
+                    Tobana Mahakasika ireo vola (Adidy,...)
+                  </a>
+                </li>
+                
+                
+              </ul>
+              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Amoka ho Exel</span>
+                
+              </h6>
+              <ul class="nav flex-column mb-2">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'Tableau:Tableau' %}export_Mpino_Exel/">
+                    Amoka ho Exel ireo Mpino
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'Tableau:Tableau' %}export_Adidy_Exel/">
+                    Amoka ho Exel ireo Adidy
+                  </a>
+                </li>
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Ampiditra amin'ny Exel</span>
+                    
+                  </h6>
+                  <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'Tableau:Tableau' %}import_Mpino_Exel/">
+                        Ampiditra Mpino
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'Tableau:Tableau' %}import_Adidy_Exel/">
+                        Ampiditra Adidy
+                      </a>
+                    </li>
+                
+              </ul>
+            </div>
+          </nav>
+
+          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+              
+              <h1 class="h2">Fitatanana</h1>
+              <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group mr-2">
+                  <a href="{% url 'Tableau:Tableau' %}export_Adidy_Exel/" class="btn btn-sm btn-outline-secondary p-2 m-1">Anafatra</a>
+                  <a href="{% url 'Tableau:Tableau' %}export_Mpino_Exel/" class="btn btn-sm btn-outline-secondary p-2 m-1">Amoka</a>
+                </div>
+
+              </div>
+            
+            </div>
+            <div class="container"> <form method="get">
+
+            
+              <label for="taona"> taona :</label>
+              <input class="w-1" type="text" id="taona" name="taona" placeholder="ex: 2024">
+              <!--
+              <label for="nanoboka">Nanoboka :</label>
+              <input type="number" id="nanoboka" name="nanoboka">
+              
+              <label for="nifarana">Nifarana :</label>
+              <input type="number" id="nifarana" name="nifarana">
+              -->
+              <label for="par_page">Pejy :</label>
+              <input type="number" id="par_page" name="par_page" value="10">
+      
+              <button class="btn btn-secondary w-100" type="submit">Sivana</button>
+          </form></div>
+            <div class="table-responsive overflow-auto">
+              <h1>
+                Adidy:
+              </h1>
+              <table class="table table-striped scroll table-bordered border-primary">
+                <thead>
+                    <tr>
+                        <td colspan="43" class="text-center">Taona</td>
+                    </tr>
+                  <tr>
+                    
+                    <th scope="col">Anarana</th>
+                    <th scope="col">Fanampiny</th>
+                    <th scope="col">Karatra</th>
+                    <th scope="col">(P)/(K)</th>
+                    <th scope="col">Mpino</th>
+                    <th scope="col">Taona</th>
+                    
+                    <th  scope="col">Ja</th>
+                    <th  scope="col">P_Ja</th>
+                    <th  scope="col">Daty_Ja</th>
+
+                    <th  scope="col">Fe</th>
+                    <th  scope="col">P_Fe</th>
+                    <th>Daty_Fe</th>
+
+                    <th  scope="col">Mar</th>
+                    <th  scope="col">P_Mar</th>
+                    <th  scope="col">Daty_Mar</th>
+
+                    <th  scope="col">Av</th>
+                    <th  scope="col">P_Av</th>
+                    <th  scope="col">Daty_Av</th>
+
+                    <th  scope="col">Mai</th>
+                    <th  scope="col">P_Mai</th>
+                    <th  scope="col">Daty_Mai</th>
+
+                    <th  scope="col">Ji</th>
+                    <th  scope="col">P_Ji</th>
+                    <th>Daty_Ji</th>
+
+                    <th  scope="col">Ju</th>
+                    <th  scope="col">P_Ju</th>
+                    <th  scope="col">Daty_Ju</th>
+
+                    <th  scope="col">Ao</th>
+                    <th  scope="col">P_Ao</th>
+                    <th  scope="col">Daty_Ao</th>
+
+                    <th  scope="col">Sp</th>
+                    <th  scope="col">P_Sp</th>
+                    <th>Daty_Sp</th>
+
+                    <th  scope="col">Ok</th>
+                    <th  scope="col">P_Ok</th>
+                    <th  scope="col">Daty_Ok</th>
+
+                    <th  scope="col">Nov</th>
+                    <th  scope="col">P_Nov</th>
+                    <th>Daty_Nov</th>
+
+                    <th  scope="col">De</th>
+                    <th  scope="col">P_De</th>
+                    <th  scope="col">Date_De</th>
+
+                    <th  scope="col">
+                        Fitabarany
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {%for adidy in data.Adidy %}
+                  <tr>
+                    <td>
+                        {{adidy.adidy.Mpino.Anarana}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.Mpino.Fanampiny}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.Mpino.LaharanaKaratra}}
+
+                    </td>
+                    <td>
+                        {{adidy.adidy.Mpino.M_P}}
+                    </td>
+                    
+                    <td>
+                        {{adidy.adidy.Mpino.id}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.Taona}}
+                    </td>
+                    
+                    <td>
+                        {{adidy.adidy.J}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.P_J}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.J_Date}}
+                    </td>
+
+                    <td>
+                        {{adidy.adidy.F}}
+                    </td>
+                    <td>
+                        {{a.P_F}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.F_Date}}
+                    </td>
+
+                    <td>
+                        {{adidy.adidy.M}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.P_M}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.M_Date}}
+                    </td>
+
+                    <td>
+                        {{adidy.adidy.Av}}
+
+                    </td>
+                    <td>
+                        {{adidy.adidy.P_Av}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.Av_Date}}
+                    </td>
+
+                    <td>
+                        {{adidy.adidy.Ma}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.P_Ma}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.Ma_Date}}
+                    </td>
+
+                    <td>
+                        {{adidy.adidy.Ji}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.P_Ji}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.Ji_Date}}
+                    </td>
+
+                    <td>
+                        {{adidy.adidy.Ju}}
+                    </td>
+                    <td>
+                        {{a.P_Ju}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.Ju_Date}}
+                    </td>
+
+                    <td>
+                        {{adidy.adidy.Ag}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.P_Ag}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.Ag_Date}}
+                    </td>
+
+                    <td>
+                        {{adidy.adidy.S}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.P_S}}
+                    </td>
+
+                    <td>
+                        {{adidy.adidy.S_Date}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.Ak}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.P_Ak}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.Ac_Date}}
+                    </td>
+
+                    <td>
+                        {{adidy.adidy.N}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.P_N}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.id_N_Date}}
+                    </td>
+
+                    <td>
+                        {{adidy.adidy.D}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.P_D}}
+                    </td>
+                    <td>
+                        {{adidy.adidy.D_Date}}
+                    </td>
+
+                    <td>
+                        {{adidy.adidy.Fitabarany}}
+                    </td>
+                  </tr>
+
+                  {% empty %}
+                  <tr>
+                    <td colspan="43" class="text-center">Tsy mbola misy</td>
+                  </tr>
+                  {%endfor%}
+                </tbody>
+              </table>
+              
+               <!-- Pagination -->
+               <div>
+                {% if data.pagination.has_previous %}
+                    <a href="?page={{ data.pagination.current_page|add:-1 }}">Hiverina</a>
+                {% endif %}
+                Pejy {{ data.pagination.current_page }} aminy {{ data.pagination.total_pages }}
+                {% if data.pagination.has_next %}
+                    <a href="?page={{ data.pagination.current_page|add:1 }}">Manaraka</a>
+                {% endif %}
+            </div>
+            </div>
+            
+          </main>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer bg-dark text-center">
+    <div class="container text-center">
+      
+      <div class="d-flex justify-content-between align-items-center">
+        <p class="text-center">CDF</p>
+        {%if user.is_authenticated%}<a href="{% url 'Fanamarinana:anidy' %}">Anidy</a>
+          {{user.username}}
+        {%else%}
+          <a href="{% url 'Fanamarinana:anokatra' %}">Anokatra</a>
+        {%endif%}
+        <small class="text-muted" style="font-size: large;"><h5 class="text-success">Isan' i Mpino : {{isa}}</h5></small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript
+   ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src=""
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write(`<script src="{% static 'assets/js/vendor/jquery-slim.min.js'%}"><\/script>`)</script>
+  <script src="{% static 'assets/js/vendor/popper.min.js'%}"></script>
+  <script src="{% static 'dist3/js/bootstrap.min.js'%}"></script>
+  <script src="{% static 'assets/js/vendor/jquery-slim.min.js'%}"></script>
+  <script>
+    // <![CDATA[  <-- For SVG support
+    if ('WebSocket' in window) {
+      (function () {
+        function refreshCSS() {
+          var sheets = [].slice.call(document.getElementsByTagName("link"));
+          var head = document.getElementsByTagName("head")[0];
+          for (var i = 0; i < sheets.length; ++i) {
+            var elem = sheets[i];
+            var parent = elem.parentElement || head;
+            parent.removeChild(elem);
+            var rel = elem.rel;
+            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+              var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+              elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+            }
+            parent.appendChild(elem);
+          }
+        }
+        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+        var address = protocol + window.location.host + window.location.pathname + '/ws';
+        var socket = new WebSocket(address);
+        socket.onmessage = function (msg) {
+          if (msg.data == 'reload') window.location.reload();
+          else if (msg.data == 'refreshcss') refreshCSS();
+        };
+        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+          console.log('Live reload enabled.');
+          sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+        }
+      })();
+    }
+    else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+       // ]]>
+  </script>
+</body>
+
+</html>

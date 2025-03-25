@@ -1,0 +1,76 @@
+{% extends "admin/change_form.html" %}
+
+
+
+{% block content %}
+
+{% load static %}
+
+<script src="{% static 'js/editor_custom.js' %}"></script>
+<script src="{% static 'mdeditor/js/editormd.js' %}"></script>
+<script src="{% static 'mdeditor/languages/en.js' %}"></script>
+<script src="{% static 'dist2/js/bootstrap.bundle.js'%}"></script>
+<script src="{% static 'dist3/js/bootstrap.bundle.min.js'%}"></script>
+<link rel="stylesheet" href="{% static 'dist2/css/bootstrap.min.css' %}">
+
+  <div class="modal fade text-dark" id="editorModal" tabindex="-1" aria-labelledby="editorModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editorModalLabel">Insert Element</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-dark" id="editorModalBody">
+                <!-- Formulaire dynamique ajouté ici -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="editorModalInsert">Insert</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <!--
+<div class="container" style="width: 500px;height: 200px;">
+    <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for image in image_files %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <img src="{{ image.url }}" class="d-block " style="width: 30%;height:30%;" alt="Image {{ forloop.counter }}">
+            </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>-->
+</div>
+<style>
+  .wmd-wrapper h1, .wmd-wrapper h2, .wmd-wrapper h3, .wmd-wrapper h4, .wmd-wrapper h5, .wmd-wrapper h6 {
+    background:#ffffff00 !important;
+    color: #0e0d0def !important;
+}
+.markdown-body {
+    background-color: #333;
+	color:#ffffff;
+  height: 100%;
+}
+.wmd-wrapper h1, .wmd-wrapper h2, .wmd-wrapper h3, .wmd-wrapper h4, .wmd-wrapper h5, .wmd-wrapper h6 {
+    background:#ffffff00 !important;
+    color: #0000 !important;
+}
+label{
+  color:#0e0d0def ;
+}
+</style>
+<link rel="stylesheet" href="{% static 'dist2/css/bootstrap.min.css' %}">
+<script src="{% static 'xlsx-0.20.3/package/distxlsx.full.min.js' %}"></script>
+{{ block.super }}
+{% endblock %}
