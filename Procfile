@@ -1,2 +1,1 @@
-web: gunicorn Birao.wsgi:application --log-file -
-
+web: python run.py
