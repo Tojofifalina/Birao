@@ -1,1 +1,2 @@
-web: gunicorn Birao.wsgi --log-file -
+web: gunicorn Birao.wsgi:application --log-file -
+
