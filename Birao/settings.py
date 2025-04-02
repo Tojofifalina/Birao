@@ -30,7 +30,15 @@ SECRET_KEY = 'django-insecure-jeq*p-i!joswzy34%wbkd1-zu-7v$m5mtprre1(sjbmi4svhw+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
-ALLOWED_HOSTS = ['https://teste-fr2r.onrender.com']
+#ALLOWED_HOSTS = ['https://teste-fr2r.onrender.com']
+import os
+
+ALLOWED_HOSTS = ["*"]  # À restreindre en production
+
+# Si DEBUG est True, Render peut ne pas détecter l'application correctement
+DEBUG = os.getenv("DEBUG", "False") == "True"
+import os
+PORT = os.getenv("PORT", "10000")  # Render attribue dynamiquement un port
 
 
 # Application definition
