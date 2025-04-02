@@ -172,8 +172,8 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")  # 📌 Dossier pour collectstatic
+#STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")  # 📌 Dossier pour collectstatic
 
 # 📌 Si tu as des fichiers statiques dans un autre dossier (hors apps Django), précise-les ici :
 STATICFILES_DIRS = [
