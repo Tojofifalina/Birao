@@ -160,7 +160,7 @@ STATICFILES_DIRS =[
 ]
 
 #STATIC_ROOT = BASE_DIR / "static"
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # Default primary key field type
@@ -168,3 +168,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 #DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #django_heroku.settings(locals())
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")  # 📌 Dossier pour collectstatic
+
+# 📌 Si tu as des fichiers statiques dans un autre dossier (hors apps Django), précise-les ici :
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),  # 🔹 Assure-toi que ce dossier existe bien
+]
