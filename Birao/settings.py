@@ -88,15 +88,26 @@ WSGI_APPLICATION = 'Birao.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-import pymysql
-pymysql.install_as_MySQLdb
+#import pymysql
+#pymysql.install_as_MySQLdb
 import os
-import dj_database_url
+#import dj_database_url
+
+#DATABASES = {
+#    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+#}
+
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    }
 }
-
 
 
 # Password validation
