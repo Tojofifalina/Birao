@@ -175,6 +175,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # 📌 Django utilisera ce dossier pour servir les fichiers statiques
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # 📌 Définir où chercher les fichiers
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 📌 Définir où chercher les fichiers
 
 # 📌 Pas besoin de STATICFILES_DIRS si on met tout dans STATIC_ROOT
