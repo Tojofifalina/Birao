@@ -187,4 +187,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 📌 Définir où chercher les fichiers
 
 # 📌 Pas besoin de STATICFILES_DIRS si on met tout dans STATIC_ROOT
+CSRF_TRUSTED_ORIGINS = [
+    'https://teste-fr2r.onrender.com',  # Remplace par ton domaine
+    'https://www.tonsite.com',  # Ajoute d'autres origines si nécessaire
+]
 
