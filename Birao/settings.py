@@ -190,8 +190,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 📌 Définir où cherche
 
 CSRF_TRUSTED_ORIGINS = [
     'https://teste-fr2r.onrender.com/',
+    '*',
     
 ]
 
 # Pour désactiver temporairement (Non recommandé en production)
 CSRF_COOKIE_SECURE = False
+DEBUG=True
