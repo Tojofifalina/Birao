@@ -188,13 +188,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 📌 Définir où cherche
 
 # 📌 Pas besoin de STATICFILES_DIRS si on met tout dans STATIC_ROOT
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://teste-fr2r.onrender.com/',
-   
-    
-]
-
-# Pour désactiver temporairement (Non recommandé en production)
-CSRF_COOKIE_SECURE = False
-CSRF_COOKIE_HTTPONLY = False
-DEBUG=True
