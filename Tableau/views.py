@@ -21,7 +21,7 @@ def fitre_special(laharana):
     isa = re.findall(r'\d+',laharana)
     return [int(p) for p in isa] if isa else [float('inf')]
 
-#@login_required
+@login_required
 def Mpino(request):
     moba = Mpino3.objects.all()
 
