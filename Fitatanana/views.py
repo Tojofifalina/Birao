@@ -15,7 +15,7 @@ from datetime import date
 """
 def Voloany(request):
     return render(request,'Fiagonana/Pejy1.html')
-#@login_required
+@login_required
 
 def Ikaroka(request,code):
     if request.method == 'POST':
@@ -33,7 +33,7 @@ def Ikaroka(request,code):
     context = {"form":form,"moba":moba,"fikaroana":fikaroana,"ita":ita,"code":code}
 
     return render(request,'Fiagonana/anova_mobamoba.html',context)
-#@login_required
+@login_required
 def Adrana(request):
     if request.method == 'POST':
         form = Mombamoba2(request.POST)
@@ -67,7 +67,7 @@ def Mety(request):
     return render(request,'Fiagonana/mety.html')
 def EfaMisy(request):
     return render(request,'Fiagonana/EfaMisy.html')
-#@permission_required('Fitatanana.chage_mpino3')
+@permission_required('Fitatanana.chage_mpino3')
 def Anova(request,anarana):
     Anarana = Mpino3.objects.get(pk= anarana)
     if request.method == 'POST':
@@ -80,7 +80,7 @@ def Anova(request,anarana):
         context = {"form":form,"anarana":Anarana}
     return render(request, 'Fiagonana/adrana2.html', context)
 
-#@login_required
+@login_required
 def AmpiditraVola(request,id):
     Anarana = Mpino3.objects.get(pk=id)
     if request.method == 'POST':
@@ -93,7 +93,7 @@ def AmpiditraVola(request,id):
 
     context = {"form": form,"anarana":Anarana}
     return render(request, 'Fiagonana/adrana3.html', context)
-#@login_required
+@login_required
 def Tahiry(request,id):
     ita = Mpino3.objects.filter(id = id) if id else None
     fikaroana = request.GET.get('q', '')
@@ -101,7 +101,7 @@ def Tahiry(request,id):
     context = {"ita": ita,"ita2":ita2}
     return render(request,'Fiagonana/Tahiry.html',context)
 
-#@login_required
+@login_required
 def recherche_payement(request):
     nom = request.GET.get('nom')
     annee = request.GET.get('annee')
@@ -184,7 +184,7 @@ def recherche_payement(request):
         'message': "Tsy misy" if not resultats else "",
     })
 
-#@login_required
+@login_required
 def AmpiditraAdidyVaovao(request,id):
     Anarana = Mpino3.objects.get(pk=id)
     niditra = request.POST.dict()
@@ -240,7 +240,7 @@ def AmpiditraAdidyVaovao(request,id):
 """
  Mety
 """
-#@permission_required('Fitatanana.chage_adidy')
+@permission_required('Fitatanana.chage_adidy')
 def AnovaAdidy(request,taona,mpino):
     adidy = Adidy.objects.get(Taona=taona,Mpino=mpino)
     niditra = request.POST.dict()
