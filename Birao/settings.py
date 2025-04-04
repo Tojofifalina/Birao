@@ -106,17 +106,26 @@ import os
 #}
 
 
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.mysql',
+   #     'NAME': 'basebirao',
+    #    'USER': 'tojofifaliana',
+     #   'PASSWORD': 'tojo6321',
+      #  'HOST': 'db4free.net',  # ou autre selon le service
+       # 'PORT': '3306',
+    #}
+#}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'basebirao',
-        'USER': 'tojofifaliana',
-        'PASSWORD': 'tojo6321',
-        'HOST': 'db4free.net',  # ou autre selon le service
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
