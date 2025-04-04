@@ -196,4 +196,5 @@ CSRF_TRUSTED_ORIGINS = [
 
 # Pour désactiver temporairement (Non recommandé en production)
 CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_HTTPONLY = False
 DEBUG=True
