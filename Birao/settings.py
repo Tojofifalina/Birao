@@ -187,3 +187,13 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 📌 Définir où chercher les fichiers
 
 # 📌 Pas besoin de STATICFILES_DIRS si on met tout dans STATIC_ROOT
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://127.0.0.1:8000',
+    'http://localhost:8000',
+    'https://ton-site-en-production.com',  # Si nécessaire
+    '*'
+]
+
+# Pour désactiver temporairement (Non recommandé en production)
+CSRF_COOKIE_SECURE = False
