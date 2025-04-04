@@ -108,12 +108,12 @@ import os
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'basebirao',
+        'USER': 'tojofifaliana',
+        'PASSWORD': 'tojo6321',
+        'HOST': 'db4free.net',  # ou autre selon le service
+        'PORT': '3306',
     }
 }
 
