@@ -190,7 +190,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 📌 Définir où cherche
 
 CSRF_TRUSTED_ORIGINS = [
     'https://teste-fr2r.onrender.com/',
-    '*',
+   
     
 ]
 
