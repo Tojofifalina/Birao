@@ -80,7 +80,7 @@ def Anova(request,anarana):
         context = {"form":form,"anarana":Anarana}
     return render(request, 'Fiagonana/adrana2.html', context)
 
-@login_required
+#@login_required
 def AmpiditraVola(request,id):
     Anarana = Mpino3.objects.get(pk=id)
     if request.method == 'POST':
@@ -184,7 +184,7 @@ def recherche_payement(request):
         'message': "Tsy misy" if not resultats else "",
     })
 
-@login_required
+#@login_required
 def AmpiditraAdidyVaovao(request,id):
     Anarana = Mpino3.objects.get(pk=id)
     niditra = request.POST.dict()
