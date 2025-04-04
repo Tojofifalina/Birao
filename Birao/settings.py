@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-jeq*p-i!joswzy34%wbkd1-zu-7v$m5mtprre1(sjbmi4svhw+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 #ALLOWED_HOSTS = ['https://teste-fr2r.onrender.com']
 import os
